@@ -7,6 +7,13 @@ $(document).ready(function () {
   // Moment instance
   const m = moment();
 
+  // // Init storage
+  // const storage = new Storage();
+  // // Get stored location data
+  // const weatherLocation = storage.getLocationData();
+  // // Init weather object
+  // const weather = new weather(weatherLocation.city);
+
   // This is our API key
   var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
 

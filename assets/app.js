@@ -11,12 +11,46 @@ $(document).ready(function () {
   var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
 
   // This is the city variable
-  var city = "houston";
+  var newCity = "Honolulu"
+
+  // This is the most recent city chosen
+  var mostRecentCity = localStorage.getItem('mostRecentCity')
+
+  // This sets the most recent city from the text entered into the city textarea
+  city.innerText = mostRecentCity
+
+  // This is the save button
+  var saveChangesBtn = document.querySelector('#saveChangesBtn')
+
+  // This is the list of five most recently searched cities
+  var citiesList = JSON.parse(localStorage.getItem('citiesList')) || []
+  const MAX_CITIES = 5
+
+  // Save city function
+  saveCity = e => {
+    e.preventDefault()
+
+    const city = { 
+      city: mostRecentCity
+    }
+
+    //Five most recent cities are saved
+    citiesList.push(city)
+
+    citiesList.sort((a, b) => {
+      return b.city - a.city
+    })
+
+    citiesList.splice(5)
+
+    // list of cities is saved in local storage
+    localStorage.setItem('citiesList', JSON.stringify(citiesList))
+  }
   
   // Here we are building the URL we need to query the database.
   
   // Daily Weather api (no UV index)
-  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=${apiKey}`
 
 
   // Here we run our AJAX call to the OpenWeatherMap API
@@ -27,7 +61,10 @@ $(document).ready(function () {
     // We store all of the retrieved data inside of an object called "response"
     .then(function (response) {
 
+      // Set the icon variable
       var icon = `${response.weather[0].icon}`;
+
+      // Log the icon
       // console.log(icon);
 
       // Log the queryURL
@@ -42,14 +79,14 @@ $(document).ready(function () {
 
       // Transfer content to HTML
       $('#city').html(`<h1>${response.name} Weather Details</h1>`);
-      $('#date').text(`${m.format('[Today is] dddd, MMMM Do YYYY')}`);
+      $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
       $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
       // $('#temp').text(`Temperature (K) ${response.main.temp}`);
       $('#tempF').text(`Temperature (F) ${tempFar.toFixed(2)}`);
       $('#humidity').text(`Humidity ${response.main.humidity}`);
       $('#windSpeed').text(`Wind Speed ${response.wind.speed}`);
 
-      // Call UV data function
+      // Call UV data function using the lat and lon data passed in from the queryURL API call
       getUvData(response.coord.lat, response.coord.lon)
 
       // add temp content to html
@@ -67,7 +104,7 @@ $(document).ready(function () {
       
     });
 
-  // Function to call UV data from API
+  // UV data function (with API call)
 
   function getUvData(lat, lon) {
     const uvURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`

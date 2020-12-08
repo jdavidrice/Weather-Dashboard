@@ -11,49 +11,63 @@ $(document).ready(function () {
   var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
 
   // This is the city variable
-  var newCity = "Honolulu"
+  var city = "Detroit"
 
-  // This is the most recent city chosen
-  var mostRecentCity = localStorage.getItem('mostRecentCity')
-
-  // This sets the most recent city from the text entered into the city textarea
-  city.innerText = mostRecentCity
-
-  // This is the save button
-  var saveChangesBtn = document.querySelector('#saveChangesBtn')
-
-  // This is the list of five most recently searched cities
-  var citiesList = JSON.parse(localStorage.getItem('citiesList')) || []
-  const MAX_CITIES = 5
-
-  // Save city function
-  saveCity = e => {
-    e.preventDefault()
-
-    const city = { 
-      city: mostRecentCity
-    }
-
-    //Five most recent cities are saved
-    citiesList.push(city)
-
-    citiesList.sort((a, b) => {
-      return b.city - a.city
-    })
-
-    citiesList.splice(5)
-
-    // list of cities is saved in local storage
-    localStorage.setItem('citiesList', JSON.stringify(citiesList))
-  }
-  
-  // Here we are building the URL we need to query the database.
-  
   // Daily Weather api (no UV index)
-  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=${apiKey}`
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+
+  // Change to new city event listener
+  document.getElementById('saveChangesBtn').addEventListener('click', (e) => {
+    const city = document.getElementById('city').value;
+
+    weather.changeLocation('Miami');
+
+    // Get and display weather
+    getWeather();
+
+    // Close modal
+    $('#locModal').modal('hide');
+  });
+
+
+  // // This is the most recent city chosen
+  // var mostRecentCity = localStorage.getItem('mostRecentCity')
+
+  // // This sets the most recent city from the text entered into the city textarea
+  // city.innerText = mostRecentCity
+
+  // // This is the save button
+  // var saveChangesBtn = document.querySelector('#saveChangesBtn')
+
+  // // This is the list of five most recently searched cities
+  // var citiesList = JSON.parse(localStorage.getItem('citiesList')) || []
+  // const MAX_CITIES = 5
+
+  // // Save city function
+  // saveCity = e => {
+  //   e.preventDefault()
+
+  //   const city = { 
+  //     city: mostRecentCity
+  //   }
+
+  //   //Five most recent cities are saved
+  //   citiesList.push(city)
+
+  //   citiesList.sort((a, b) => {
+  //     return b.city - a.city
+  //   })
+
+  //   citiesList.splice(5)
+
+  //   // list of cities is saved in local storage
+  //   localStorage.setItem('citiesList', JSON.stringify(citiesList))
+  // }
+
 
 
   // Here we run our AJAX call to the OpenWeatherMap API
+
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -64,15 +78,6 @@ $(document).ready(function () {
       // Set the icon variable
       var icon = `${response.weather[0].icon}`;
 
-      // Log the icon
-      // console.log(icon);
-
-      // Log the queryURL
-      // console.log(queryURL);
-
-      // Log the resulting object
-      // console.log(response);
-
       // Convert the temp to fahrenheit
       var tempFar = (response.main.temp - 273.15) * 1.80 + 32;
       // console.log(tempFar);
@@ -82,9 +87,9 @@ $(document).ready(function () {
       $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
       $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
       // $('#temp').text(`Temperature (K) ${response.main.temp}`);
-      $('#tempF').text(`Temperature (F) ${tempFar.toFixed(2)}`);
-      $('#humidity').text(`Humidity ${response.main.humidity}`);
-      $('#windSpeed').text(`Wind Speed ${response.wind.speed}`);
+      $('#tempF').text(`Temperature: ${tempFar.toFixed(0)} Degrees F`);
+      $('#humidity').text(`Humidity: ${response.main.humidity}%`);
+      $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);
 
       // Call UV data function using the lat and lon data passed in from the queryURL API call
       getUvData(response.coord.lat, response.coord.lon)
@@ -101,7 +106,7 @@ $(document).ready(function () {
       // console.log(`Temperature (F) ${tempFar.tofixed(2)}`);
       // console.log(`Humidity ${response.main.humidity}`);
       // console.log(`Wind Speed ${response.wind.speed}`);;
-      
+
     });
 
   // UV data function (with API call)
@@ -114,14 +119,11 @@ $(document).ready(function () {
       method: "GET"
     })
       .then(function (uvData) {
-        $('#uvIndex').text(`UV Index ${uvData.current.uvi}`);
+        $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
 
       })
 
   }
-
- 
-
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Solution 2 (incomplete and broken)
@@ -191,24 +193,24 @@ $(document).ready(function () {
 
   // To make API call
 
-  class Weather {
-    constructor(city, state) {
-      this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
-      this.city = city;
-      this.state = state;
-    }
+  // class Weather {
+  //   constructor(city, state) {
+  //     this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
+  //     this.city = city;
+  //     this.state = state;
+  //   }
 
-    // Fetch weather from API
-    async getWeather() {
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.city},${this.state}&appid=${this.apiKey}`);
+  //   // Fetch weather from API
+  //   async getWeather() {
+  //     const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.city},${this.state}&appid=${this.apiKey}`);
 
-      const responseData = await response.json();
+  //     const responseData = await response.json();
 
-      return responseData;
-    }
+  //     return responseData;
+  //   }
 
-    
-  }
+
+  // }
 
 
   // // Init weather object

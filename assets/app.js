@@ -10,12 +10,13 @@ $(document).ready(function () {
   // This is our API key
   var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
 
-  // Here we are building the URL we need to query the database. May need to convert from city name to lat/long to use OneCall api.
-  // OneCall api to get UV index
-  // var queryURL = (`https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&appid=${apiKey}`);
-  // City api (no UV index)
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-    "q=Tokyo&appid=" + apiKey;
+  // This is the city variable
+  var city = "houston";
+  
+  // Here we are building the URL we need to query the database.
+  
+  // Daily Weather api (no UV index)
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
 
 
   // Here we run our AJAX call to the OpenWeatherMap API
@@ -30,45 +31,47 @@ $(document).ready(function () {
       // console.log(icon);
 
       // Log the queryURL
-      console.log(queryURL);
+      // console.log(queryURL);
 
       // Log the resulting object
-      console.log(response);
+      // console.log(response);
 
       // Convert the temp to fahrenheit
       var tempFar = (response.main.temp - 273.15) * 1.80 + 32;
-      console.log(tempFar);
+      // console.log(tempFar);
 
       // Transfer content to HTML
       $('#city').html(`<h1>${response.name} Weather Details</h1>`);
       $('#date').text(`${m.format('[Today is] dddd, MMMM Do YYYY')}`);
       $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
-      $('#temp').text(`Temperature (K) ${response.main.temp}`);
+      // $('#temp').text(`Temperature (K) ${response.main.temp}`);
       $('#tempF').text(`Temperature (F) ${tempFar.toFixed(2)}`);
       $('#humidity').text(`Humidity ${response.main.humidity}`);
       $('#windSpeed').text(`Wind Speed ${response.wind.speed}`);
-      
+
+      // Call UV data function
+      getUvData(response.coord.lat, response.coord.lon)
 
       // add temp content to html
-      $("#temp").text(`Temperature (K) ${response.main.temp}`);
-      $("#tempF").text(`Temperature (F) ${tempFar.toFixed(2)}`);
+      // $("#temp").text(`Temperature (K) ${response.main.temp}`);
+      // $("#tempF").text(`Temperature (F) ${tempFar.toFixed(2)}`);
 
       // Log the data in the console as well
-      console.log(`<h1>${response.name} Weather Details</h1>`);
-      console.log(`Date ${response.coord}`);
-      console.log(`${response.icon}`);
-      console.log(`Temperature (K) ${response.main.temp}`);
+      // console.log(`<h1>${response.name} Weather Details</h1>`);
+      // console.log(`Date ${response.coord}`);
+      // console.log(`${response.icon}`);
+      // console.log(`Temperature (K) ${response.main.temp}`);
       // console.log(`Temperature (F) ${tempFar.tofixed(2)}`);
-      console.log(`Humidity ${response.main.humidity}`);
-      console.log(`Wind Speed ${response.wind.speed}`);
-      // console.log(`UV Index ${response.main.uvindex}`);
-      getUvData(response.coord.lat, response.coord.lon)
+      // console.log(`Humidity ${response.main.humidity}`);
+      // console.log(`Wind Speed ${response.wind.speed}`);;
       
     });
 
+  // Function to call UV data from API
+
   function getUvData(lat, lon) {
     const uvURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    console.log(uvURL)
+    // console.log(uvURL)
     $.ajax({
       url: uvURL,
       method: "GET"
@@ -76,9 +79,11 @@ $(document).ready(function () {
       .then(function (uvData) {
         $('#uvIndex').text(`UV Index ${uvData.current.uvi}`);
 
-    })
+      })
 
   }
+
+ 
 
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -149,28 +154,24 @@ $(document).ready(function () {
 
   // To make API call
 
-  // class Weather {
-  //   constructor(city, state) {
-  //     this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
-  //     this.city = city;
-  //     this.state = state;
-  //   }
+  class Weather {
+    constructor(city, state) {
+      this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
+      this.city = city;
+      this.state = state;
+    }
 
-  //   // Fetch weather from API
-  //   async getWeather() {
-  //     const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.city},${this.state}&appid=${this.apiKey}`);
+    // Fetch weather from API
+    async getWeather() {
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.city},${this.state}&appid=${this.apiKey}`);
 
-  //     const responseData = await response.json();
+      const responseData = await response.json();
 
-  //     return responseData;
-  //   }
+      return responseData;
+    }
 
-  //   // Change weather location
-  //   changeLocation(city, state) {
-  //     this.city = city;
-  //     this.state = state;
-  //   }
-  // }
+    
+  }
 
 
   // // Init weather object

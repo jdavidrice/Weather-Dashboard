@@ -21,7 +21,7 @@ $(document).ready(function () {
   var city = "Detroit"
 
   // Daily Weather api (no UV index)
-  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
 
   // Change to new city event listener
   document.getElementById('saveChangesBtn').addEventListener('click', (e) => {
@@ -85,34 +85,16 @@ $(document).ready(function () {
       // Set the icon variable
       var icon = `${response.weather[0].icon}`;
 
-      // Convert the temp to fahrenheit
-      var tempFar = (response.main.temp - 273.15) * 1.80 + 32;
-      // console.log(tempFar);
-
       // Transfer content to HTML
       $('#city').html(`<h1>${response.name} Weather Details</h1>`);
       $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
       $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
-      // $('#temp').text(`Temperature (K) ${response.main.temp}`);
-      $('#tempF').text(`Temperature: ${tempFar.toFixed(0)} Degrees F`);
+      $('#temp').text(`Temperature: ${response.main.temp} Degrees F`);
       $('#humidity').text(`Humidity: ${response.main.humidity}%`);
       $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);
 
       // Call UV data function using the lat and lon data passed in from the queryURL API call
       getUvData(response.coord.lat, response.coord.lon)
-
-      // add temp content to html
-      // $("#temp").text(`Temperature (K) ${response.main.temp}`);
-      // $("#tempF").text(`Temperature (F) ${tempFar.toFixed(2)}`);
-
-      // Log the data in the console as well
-      // console.log(`<h1>${response.name} Weather Details</h1>`);
-      // console.log(`Date ${response.coord}`);
-      // console.log(`${response.icon}`);
-      // console.log(`Temperature (K) ${response.main.temp}`);
-      // console.log(`Temperature (F) ${tempFar.tofixed(2)}`);
-      // console.log(`Humidity ${response.main.humidity}`);
-      // console.log(`Wind Speed ${response.wind.speed}`);;
 
     });
 
@@ -131,6 +113,18 @@ $(document).ready(function () {
       })
 
   }
+
+  // Use this for the UV data function with API call
+  // async function getData() {
+  //   try {
+  //     const firstCall = await ajax()
+  //     if (firstCall) {
+  //       const secondCall = await ajax(`/url/${firstCall}`)
+  //     }
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Solution 2 (incomplete and broken)

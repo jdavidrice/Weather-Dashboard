@@ -3,8 +3,12 @@
 $(document).ready(function () {
   // Solution 4
 
+  // Moment instance
+  const m = moment();
+ 
   // Init weather object
   const weather = new Weather('Hartford');
+  // const weather = '';
 
   weather.getWeather()
     .then(results => {
@@ -15,7 +19,7 @@ $(document).ready(function () {
   // Solution 3
 
   // Moment instance
-  const m = moment();
+  // const m = moment();
 
   // // Init storage
   // const storage = new Storage();
@@ -34,17 +38,17 @@ $(document).ready(function () {
   // var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
 
   // Change to new city event listener
-  document.getElementById('w-change-btn').addEventListener('click', (e) => {
-    const city = document.getElementById('city').value;
+  // document.getElementById('w-change-btn').addEventListener('click', (e) => {
+  //   const city = document.getElementById('city').value;
 
-    weather.changeLocation('Miami');
+  //   weather.changeLocation('Miami');
 
-    // Get and display weather
-    getWeather();
+  //   // Get and display weather
+  //   getWeather();
 
-    // Close modal
-    $('#locModal').modal('hide');
-  });
+  //   // Close modal
+  //   $('#locModal').modal('hide');
+  // });
 
 
   // // This is the most recent city chosen
@@ -85,44 +89,44 @@ $(document).ready(function () {
 
   // Here we run our AJAX call to the OpenWeatherMap API
 
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-    // We store all of the retrieved data inside of an object called "response"
-    .then(function (response) {
+  // $.ajax({
+  //   url: queryURL,
+  //   method: "GET"
+  // })
+  //   // We store all of the retrieved data inside of an object called "response"
+  //   .then(function (response) {
 
-      // Set the icon variable
-      var icon = `${response.weather[0].icon}`;
+  //     // Set the icon variable
+  //     var icon = `${response.weather[0].icon}`;
 
-      // Transfer content to HTML
-      $('#city').html(`<h1>${response.name} Weather Details</h1>`);
-      $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
-      $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
-      $('#temp').text(`Temperature: ${response.main.temp} Degrees F`);
-      $('#humidity').text(`Humidity: ${response.main.humidity}%`);
-      $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);
+  //     // Transfer content to HTML
+  //     $('#city').html(`<h1>${response.name} Weather Details</h1>`);
+  //     $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
+  //     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
+  //     $('#temp').text(`Temperature: ${response.main.temp} Degrees F`);
+  //     $('#humidity').text(`Humidity: ${response.main.humidity}%`);
+  //     $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);
 
-      // Call UV data function using the lat and lon data passed in from the queryURL API call
-      getUvData(response.coord.lat, response.coord.lon)
+  //     // Call UV data function using the lat and lon data passed in from the queryURL API call
+  //     getUvData(response.coord.lat, response.coord.lon)
 
-    });
+  //   });
 
-  // UV data function (with API call)
+  // // UV data function (with API call)
 
-  function getUvData(lat, lon) {
-    const uvURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    // console.log(uvURL)
-    $.ajax({
-      url: uvURL,
-      method: "GET"
-    })
-      .then(function (uvData) {
-        $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
+  // function getUvData(lat, lon) {
+  //   const uvURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+  //   // console.log(uvURL)
+  //   $.ajax({
+  //     url: uvURL,
+  //     method: "GET"
+  //   })
+  //     .then(function (uvData) {
+  //       $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
 
-      })
+  //     })
 
-  }
+  // }
 
   // Use this for the UV data function with API call
   // async function getData() {

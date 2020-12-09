@@ -1,6 +1,16 @@
 
 // jQuery wrapper
 $(document).ready(function () {
+  // Solution 4
+
+  // Init weather object
+  const weather = new Weather('Hartford');
+
+  weather.getWeather()
+    .then(results => {
+      console.log(results);
+    })
+    .catch(err => console.log(err));
 
   // Solution 3
 
@@ -15,16 +25,16 @@ $(document).ready(function () {
   // const weather = new weather(weatherLocation.city);
 
   // This is our API key
-  var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
+  // var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
 
   // This is the city variable
-  var city = "Detroit"
+  // var city = "Detroit"
 
   // Daily Weather api (no UV index)
-  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
+  // var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
 
   // Change to new city event listener
-  document.getElementById('saveChangesBtn').addEventListener('click', (e) => {
+  document.getElementById('w-change-btn').addEventListener('click', (e) => {
     const city = document.getElementById('city').value;
 
     weather.changeLocation('Miami');
@@ -191,41 +201,6 @@ $(document).ready(function () {
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Solution 1 (incomplete)
-
-  // To make API call
-
-  // class Weather {
-  //   constructor(city, state) {
-  //     this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
-  //     this.city = city;
-  //     this.state = state;
-  //   }
-
-  //   // Fetch weather from API
-  //   async getWeather() {
-  //     const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.city},${this.state}&appid=${this.apiKey}`);
-
-  //     const responseData = await response.json();
-
-  //     return responseData;
-  //   }
-
-
-  // }
-
-
-  // // Init weather object
-  // const weather = new Weather('Hartford');
-
-  // weather.getWeather()
-  //   .then(results => {
-  //     console.log(results);
-  //   })
-  //   .catch(err => console.log(err));
-
-
-
-
 
 
   // Below this line are the closing "ready function" delimiters from the top of the page

@@ -1,18 +1,20 @@
 class Weather {
   constructor(city) {
     this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
-    this.city = city
+    this.city = city;
   }
 
-  Fetch weather
+  // Fetch weather from API
   async getWeather() {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}&units=imperial`);
 
     const responseData = await response.json();
 
-    return responseData.current_observation;
+    return responseData;
+    // return responseData.current_observation;
+    // return responseData.weather;
+    // return responseData.main;
   }
-
 
   // Change weather location
   changeLocation(city) {

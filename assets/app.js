@@ -1,14 +1,15 @@
 
 // jQuery wrapper
-$(document).ready(function () {
+// $(document).ready(function () {
   // Solution 4
 
   // Moment instance
-  const m = moment();
+  // const m = moment();
  
   // Init weather object
-  const weather = new Weather('Hartford');
-  // const weather = '';
+const weather = new Weather('Hartford');
+
+weather.changeLocation('Miami');
 
   weather.getWeather()
     .then(results => {
@@ -208,4 +209,4 @@ $(document).ready(function () {
 
 
   // Below this line are the closing "ready function" delimiters from the top of the page
-})
+// })

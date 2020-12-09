@@ -18,16 +18,21 @@ $(document).ready(function () {
   var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
 
   // This is the city variable
-  var city = "Detroit"
+  // var city = "Honolulu"
+  // const city = "Honolulu"
+  // console.log(document.getElementById('city').value)
+  var city = $('#city').value;
+  console.log(city)
 
   // Daily Weather api (no UV index)
   var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
 
+  console.log(queryURL)
   // Change to new city event listener
-  document.getElementById('saveChangesBtn').addEventListener('click', (e) => {
-    const city = document.getElementById('city').value;
-
-    weather.changeLocation('Miami');
+  $('#saveChangesBtn').on('click', function (event) {
+    event.preventDefault();
+    
+    // weather.changeLocation('Miami');
 
     // Get and display weather
     getWeather();
@@ -75,6 +80,7 @@ $(document).ready(function () {
 
   // Here we run our AJAX call to the OpenWeatherMap API
 
+  function getWeather() {
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -114,6 +120,10 @@ $(document).ready(function () {
 
   }
 
+}
+
+  // getWeather();
+  
   // Use this for the UV data function with API call
   // async function getData() {
   //   try {

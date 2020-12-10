@@ -18,7 +18,7 @@ $(document).ready(function () {
   var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
 
   // This is the city variable
-  var city = "Detroit"
+  var city = "Honolulu"
 
   // Daily Weather api (no UV index)
   var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
@@ -86,10 +86,10 @@ $(document).ready(function () {
       var icon = `${response.weather[0].icon}`;
 
       // Transfer content to HTML
-      $('#city').html(`<h1>${response.name} Weather Details</h1>`);
+      $('#city').html(`<h1>${response.name}</h1>`);
       $('#date').text(`${m.format('dddd, MMMM Do YYYY')}`);
       $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
-      $('#temp').text(`Temperature: ${response.main.temp} Degrees F`);
+      $('#temp').text(`Temperature: ${response.main.temp} deg F`);
       $('#humidity').text(`Humidity: ${response.main.humidity}%`);
       $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);
 

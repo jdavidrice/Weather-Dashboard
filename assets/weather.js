@@ -20,8 +20,51 @@ class Weather {
   changeLocation(city) {
     this.city = city;
   }
+
+}  
+ 
+
+  //   });
+
+  // UV data function (with API call)
+  function getUvData(lat, lon) {
+  const uvURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${this.apiKey}`
+  // console.log(uvURL)
+  $.ajax({
+    url: uvURL,
+    method: "GET"
+  })
+    .then(function (uvData) {
+      $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
+
+    })
+
+  }
+
+ // Call UV data function using the lat and lon data passed in from the queryURL API call
+getUvData(weather.coord.lat, weather.coord.lon)
+  
 // The curly bracket below closes the Weather class from the top of the page
-}
+
+
+
+
+
+// Here we run our AJAX call to the OpenWeatherMap API
+
+  // $.ajax({
+  //   url: queryURL,
+  //   method: "GET"
+  // })
+  //   // We store all of the retrieved data inside of an object called "response"
+  //   .then(function (response) {
+
+  //     // Set the icon variable
+  //     var icon = `${response.weather[0].icon}`;
+
+  //     
+
+
 
 // class uvIndex {
 //   constructor() {
@@ -39,7 +82,7 @@ class Weather {
 
 //     return responseUvData;
 //   }
-// // The curly bracket below closes the uvIndex class from the top of the page
+// // The curly bracket below closes the uvIndex class from line 26
 // }
 
 

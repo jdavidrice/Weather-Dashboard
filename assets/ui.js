@@ -13,12 +13,12 @@ class UI {
   paint(weather) {
     this.city.textContent = `${weather.name} Current Conditions`;
     this.date.textContent = `${m.format('dddd, MMMM Do YYYY')}`;
-    this.icon = `${`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}`;
+    // $('#icon').attr("src", (`http://openweathermap.org/img/wn/${weather.icon}@2x.png`);
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
     // this.uvData.textContent = 
-    
+
   }
 
 }
@@ -26,8 +26,7 @@ class UI {
 
 
 
-//  Set the icon variable
-  //     var icon = `${response.weather[0].icon}`;
+  //     
 
   //     // Transfer content to HTML
   //     this.city.textContent = $('#city').html(`<$>${response.name} Weather Details</$>`);

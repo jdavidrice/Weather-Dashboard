@@ -87,7 +87,7 @@ $(document).ready(function () {
 
       // Transfer content to HTML
       $('#city').html(`<h1>${response.name} Weather Details</h1>`);
-      $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
+      $('#date').text(`${m.format('dddd, MMMM Do YYYY')}`);
       $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
       $('#temp').text(`Temperature: ${response.main.temp} Degrees F`);
       $('#humidity').text(`Humidity: ${response.main.humidity}%`);

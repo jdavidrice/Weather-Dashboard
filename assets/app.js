@@ -7,8 +7,14 @@
 // Moment instance
 const m = moment();
 
+// Init storage
+const storage = new Storage();
+
+// Get stored location data
+const weatherLocation = storage.getLocationData();
+
 // Init weather object
-const weather = new Weather('Honolulu');
+const weather = new Weather(weatherLocation.city);
 
 // Init weather2 object
 // const weather2 = new Weather2();
@@ -20,12 +26,28 @@ const ui = new UI();
 document.addEventListener('DOMContentLoaded', getWeather);
 // document.addEventListener('DOMContentLoaded', getWeather2);
 
-// weather.changeLocation('Hartford');
+// Change location event
+document.getElementById('w-change-btn').addEventListener('click', (e) => {
+  const city = document.getElementById('city').value;
+
+  // Change location
+  weather.changeLocation(city);
+
+  // Set location in LS
+  storage.setLocationData(city);
+
+  // Get and display weather
+  getWeather();
+
+  // Close modal
+  $('#locModal').modal('hide');
+});
+
 
 function getWeather() {
   weather.getWeather()
     .then(results => {
-      console.log("getWeather", results);
+      //                
       ui.paint(results);
     })
     .catch(err => console.log(err));
@@ -67,18 +89,7 @@ function getWeather() {
   // Daily Weather api (no UV index)
   // var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
 
-  // Change to new city event listener
-  // document.getElementById('w-change-btn').addEventListener('click', (e) => {
-  //   const city = document.getElementById('city').value;
 
-  //   weather.changeLocation('Miami');
-
-  //   // Get and display weather
-  //   getWeather();
-
-  //   // Close modal
-  //   $('#locModal').modal('hide');
-  // });
 
 
   // // This is the most recent city chosen

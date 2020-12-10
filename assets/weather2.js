@@ -39,7 +39,7 @@ function getUvData() {
 getUvData(response.coord.lat, response.coord.lon)
 
 let lat = weather.coord.lat
-let lon = response2.coord.lon
+let lon = weather.coord.lon
 getUvData(lat, lon)
 
 

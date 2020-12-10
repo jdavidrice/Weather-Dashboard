@@ -10,14 +10,15 @@ const m = moment();
 // Init weather object
 const weather = new Weather('Honolulu');
 
-// Init UVindex object
-// const uvIndex = new uvIndex();
+// Init weather2 object
+const weather2 = new Weather2('56.17', '29.13');
 
 // Init UI
 const ui = new UI();
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
+document.addEventListener('DOMContentLoaded', getWeather2);
 
 // weather.changeLocation('Hartford');
 
@@ -29,6 +30,18 @@ function getWeather() {
     })
     .catch(err => console.log(err));
 }
+
+function getWeather2() {
+  weather2.getWeather2()
+    .then(results2 => {
+      console.log(results2);
+      ui.paint(results2);
+    })
+    .catch(err => console.log(err));
+}
+
+
+
 
 // The symbol below is the code for the degree symbol
 // &#176;

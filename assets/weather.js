@@ -11,9 +11,7 @@ class Weather {
     const responseData = await response.json();
 
     return responseData;
-    // return responseData.current_observation;
-    // return responseData.weather;
-    // return responseData.main;
+
   }
 
   // Change weather location
@@ -21,30 +19,13 @@ class Weather {
     this.city = city;
   }
 
+// The curly bracket below closes the Weather class from the top of the page
 }  
  
 
-  //   });
 
-  // UV data function (with API call)
-  function getUvData(lat, lon) {
-  const uvURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${this.apiKey}`
-  // console.log(uvURL)
-  $.ajax({
-    url: uvURL,
-    method: "GET"
-  })
-    .then(function (uvData) {
-      $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
-
-    })
-
-  }
-
- // Call UV data function using the lat and lon data passed in from the queryURL API call
-getUvData(weather.coord.lat, weather.coord.lon)
   
-// The curly bracket below closes the Weather class from the top of the page
+
 
 
 

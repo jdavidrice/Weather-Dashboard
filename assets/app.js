@@ -11,34 +11,34 @@ const m = moment();
 const weather = new Weather('Honolulu');
 
 // Init weather2 object
-const weather2 = new Weather2('56.17', '29.13');
+// const weather2 = new Weather2();
 
 // Init UI
 const ui = new UI();
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
-document.addEventListener('DOMContentLoaded', getWeather2);
+// document.addEventListener('DOMContentLoaded', getWeather2);
 
 // weather.changeLocation('Hartford');
 
 function getWeather() {
   weather.getWeather()
     .then(results => {
-      console.log(results);
+      console.log("getWeather", results);
       ui.paint(results);
     })
     .catch(err => console.log(err));
 }
 
-function getWeather2() {
-  weather2.getWeather2()
-    .then(results2 => {
-      console.log(results2);
-      ui.paint(results2);
-    })
-    .catch(err => console.log(err));
-}
+// function getWeather2() {
+//   weather2.getWeather2()
+//     .then(results2 => {
+//       console.log("getWeather2", results2);
+//       ui.paint(results2);
+//     })
+//     .catch(err => console.log(err));
+// }
 
 
 

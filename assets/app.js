@@ -1,21 +1,32 @@
 
 // jQuery wrapper
 // $(document).ready(function () {
-  // Solution 4
 
-  // Moment instance
-  // const m = moment();
- 
-  // Init weather object
-const weather = new Weather('Hartford');
+// Solution 4
 
-weather.changeLocation('Miami');
+// Moment instance
+const m = moment();
 
+// Init weather object
+const weather = new Weather('Honolulu');
+
+// Init UI
+const ui = new UI();
+
+// Get weather on DOM load
+document.addEventListener('DOMContentLoaded', getWeather);
+
+// weather.changeLocation('Hartford');
+
+function getWeather() {
   weather.getWeather()
     .then(results => {
       console.log(results);
+      ui.paint(results);
     })
     .catch(err => console.log(err));
+}
+
 
   // Solution 3
 
@@ -97,16 +108,16 @@ weather.changeLocation('Miami');
   //   // We store all of the retrieved data inside of an object called "response"
   //   .then(function (response) {
 
-  //     // Set the icon variable
-  //     var icon = `${response.weather[0].icon}`;
+      // Set the icon variable
+      // var icon = `${response.weather[0].icon}`;
 
   //     // Transfer content to HTML
-  //     $('#city').html(`<h1>${response.name} Weather Details</h1>`);
-  //     $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
-  //     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
-  //     $('#temp').text(`Temperature: ${response.main.temp} Degrees F`);
-  //     $('#humidity').text(`Humidity: ${response.main.humidity}%`);
-  //     $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);
+      // $('#city').html(`<h1>${response.name} Weather Details</h1>`);
+      // $('#date').text(`${m.format('[Current conditions:] dddd, MMMM Do YYYY')}`);
+      // $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
+      // $('#temp').text(`Temperature: ${response.main.temp} Degrees F`);
+      // $('#humidity').text(`Humidity: ${response.main.humidity}%`);
+      // $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);
 
   //     // Call UV data function using the lat and lon data passed in from the queryURL API call
   //     getUvData(response.coord.lat, response.coord.lon)
@@ -129,7 +140,7 @@ weather.changeLocation('Miami');
 
   // }
 
-  // Use this for the UV data function with API call
+  // Possibley use this for the UV data function with API call (from Chris B.)
   // async function getData() {
   //   try {
   //     const firstCall = await ajax()

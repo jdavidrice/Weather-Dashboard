@@ -20,6 +20,45 @@ class Weather {
   changeLocation(city) {
     this.city = city;
   }
+// The curly bracket below closes the Weather class from the top of the page
+}
+
+// class uvIndex {
+//   constructor() {
+//     this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
+//     this.lat = response.coord.lat;
+//     this.lon = response.coord.lon;
+//   }
+
+//   // Fetch UV info from API
+//   async getUvIndex() {
+//     const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}`);
+//     console.log(response)
+
+//     const responseUvData = await response.json();
+
+//     return responseUvData;
+//   }
+// // The curly bracket below closes the uvIndex class from the top of the page
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // // This is our API key
   // var apiKey = "857d8b3aed4b93541a08ad2a027ffb0c";
@@ -74,5 +113,3 @@ class Weather {
 
   // }
   
-// The curly bracket below closes the Weather class from the top of the page
-}

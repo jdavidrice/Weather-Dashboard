@@ -10,6 +10,9 @@ const m = moment();
 // Init weather object
 const weather = new Weather('Honolulu');
 
+// Init UVindex object
+// const uvIndex = new uvIndex();
+
 // Init UI
 const ui = new UI();
 
@@ -27,6 +30,8 @@ function getWeather() {
     .catch(err => console.log(err));
 }
 
+// The symbol below is the code for the degree symbol
+// &#176;
 
   // Solution 3
 

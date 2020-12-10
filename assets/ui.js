@@ -18,10 +18,11 @@ class UI {
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
     // this.uvData.textContent = 
-
+    
   }
 
 }
+
 
 
 

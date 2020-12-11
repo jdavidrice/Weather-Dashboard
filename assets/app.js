@@ -88,7 +88,7 @@ $(document).ready(function () {
       // Transfer content to HTML
       $('#city').html(`<h1>${response.name}</h1>`);
       $('#date').text(`${m.format('dddd, MMMM Do YYYY')}`);
-      $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
+      $('#icon').attr("src", `${`https://openweathermap.org/img/wn/${icon}@2x.png`}`);
       $('#temp').text(`Temperature: ${response.main.temp} deg F`);
       $('#humidity').text(`Humidity: ${response.main.humidity}%`);
       $('#windSpeed').text(`Wind Speed: ${response.wind.speed} MPH`);

@@ -33,7 +33,7 @@ There is nothing to install to access the information on this website.
 
 ## Usage 
 
-Use this short coding quiz to test your knowledge of HTML, CSS, and JavaScript.
+Use this weather app to check the weather of your favorite cities. 
 
 * [Return to Top](#Weather-Dashboard)
 

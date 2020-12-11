@@ -1,26 +1,28 @@
-class Storage {
-  constructor() {
-    this.city;
-    this.defaultCity = 'Miami';
-  }
+// jQuery wrapper
+// $(document).ready(function () {
 
-  getLocationData() {
-    if (localStorage.getItem('city') === null) {
-      this.city = this.defaultCity;
-    } else {
-      this.city = localStorage.getItem('city');
-    }
+//   class Storage {
+//     constructor() {
+//       this.city;
+//       this.defaultCity = 'Miami';
+//     }
 
-    return {
-      city: this.city,
-    }
-  }
+//     getLocationData() {
+//       if (localStorage.getItem('city') === null) {
+//         this.city = this.defaultCity;
+//       } else {
+//         this.city = localStorage.getItem('city');
+//       }
 
+//       return {
+//         city: this.city,
+//       }
+//     }
 
-  setLocationData(city) {
-    localStorage.setItem('city', city);
-  }
+//     setLocationData(city) {
+//       localStorage.setItem('city', city);
+//     }
 
+//   }
 
-
-}
+// })

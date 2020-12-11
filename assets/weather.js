@@ -8,9 +8,17 @@ class Weather {
   async getWeather() {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}&units=imperial`);
 
+    
+
     const responseData = await response.json();
 
+    // console.trace(response);
+    // console.trace(this.city);
+    // console.trace(responseData);
+    // console.log("weather.js", getWeather)
+
     return responseData;
+
 
   }
 
@@ -22,15 +30,6 @@ class Weather {
 // The curly bracket below closes the Weather class from the top of the page
 }  
  
-
-
-  
-
-
-
-
-
-
 // Here we run our AJAX call to the OpenWeatherMap API
 
   // $.ajax({
@@ -42,9 +41,6 @@ class Weather {
 
   //     // Set the icon variable
   //     var icon = `${response.weather[0].icon}`;
-
-  //     
-
 
 
 // class uvIndex {
@@ -65,23 +61,6 @@ class Weather {
 //   }
 // // The curly bracket below closes the uvIndex class from line 26
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   // // This is our API key

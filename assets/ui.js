@@ -1,3 +1,5 @@
+$(document).ready(function () {
+  
 class UI {
   constructor() {
     this.city = document.getElementById('city');
@@ -13,7 +15,7 @@ class UI {
   paint(weather) {
     this.city.textContent = `${weather.name}`;
     this.date.textContent = `${m.format('dddd, MMMM Do YYYY')}`;
-    // $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${icon}@2x.png`}`);
+    $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}`);
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
@@ -24,9 +26,8 @@ class UI {
 }
 
 
+})
 
-
-  //     
 
   //     // Transfer content to HTML
   //     this.city.textContent = $('#city').html(`<$>${response.name} Weather Details</$>`);

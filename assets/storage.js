@@ -25,4 +25,5 @@
 
   // }
 
+// Below this line are the closing delimiters for the ready function at the top of the page
 // })

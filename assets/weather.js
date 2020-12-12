@@ -1,3 +1,6 @@
+// jQuery wrapper
+// $(document).ready(function () {
+
 class Weather {
   constructor(city) {
     this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';

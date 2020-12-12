@@ -1,8 +1,9 @@
+// jQuery wrapper
 // $(document).ready(function () {
   
 class UI {
   constructor() {
-    this.city = document.getElementById('city');
+    this.city = document.getElementById('nameOfCity');
     this.date = document.getElementById('date');
     this.icon = document.getElementById('icon');
     this.desc = document.getElementById('desc');
@@ -27,7 +28,7 @@ class UI {
 
 }
 
-
+// Below this line are the closing delimiters for the ready function at the top of the page
 // })
 
 

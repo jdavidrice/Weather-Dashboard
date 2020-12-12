@@ -32,8 +32,11 @@ document.addEventListener('DOMContentLoaded', getWeather);
 document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const city = document.getElementById('city').value;
 
+  console.log(city)
+
   // Change location
-  weather.changeLocation("Miami");
+  weather.changeLocation(city);
+
 
   // Set location in LS
   // storage.setLocationData(city);

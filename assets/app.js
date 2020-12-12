@@ -2,62 +2,62 @@
 // jQuery wrapper
 // $(document).ready(function () {
 
-  // Solution 4
+// Solution 4
 
-  // Moment instance
-  const m = moment();
+// Moment instance
+const m = moment();
 
-  // Init storage
-  // const storage = new Storage();
+// Init storage
+// const storage = new Storage();
 
-  // Get stored location data
-  // const weatherLocation = storage.getLocationData();
+// Get stored location data
+// const weatherLocation = storage.getLocationData();
 
-  // Init weather object
-  const weather = new Weather('Miami');
+// Init weather object
+const weather = new Weather('Miami');
 
-  weather.getWeather();
+weather.getWeather();
 
-  // Init weather2 object
-  // const weather2 = new Weather2();
+// Init weather2 object
+// const weather2 = new Weather2();
 
-  // Init UI
-  const ui = new UI();
+// Init UI
+const ui = new UI();
 
-  // Get weather on DOM load
-  document.addEventListener('DOMContentLoaded', getWeather);
-  // document.addEventListener('DOMContentLoaded', getWeather2);
+// Get weather on DOM load
+document.addEventListener('DOMContentLoaded', getWeather);
+// document.addEventListener('DOMContentLoaded', getWeather2);
 
-  // Change location event
-  document.getElementById('w-change-btn').addEventListener('click', (e) => {
-    const city = document.getElementById('city').value;
+// Change location event
+document.getElementById('w-change-btn').addEventListener('click', (e) => {
+  const city = document.getElementById('city').value;
 
-    // Change location
-    weather.changeLocation(city);
+  // Change location
+  weather.changeLocation('Miami');
 
-    // Set location in LS
-    storage.setLocationData(city);
+  // Set location in LS
+  // storage.setLocationData(city);
 
-    // Get and display weather
-    getWeather();
+  // Get and display weather
+  getWeather();
 
-    // Close modal
-    $('#locModal').modal('hide');
-  });
+  // Close modal
+  $('#locModal').modal('hide');
+});
 
 
-  function getWeather() {
-    weather.getWeather()
-      .then(results => {
-        console.trace("app.js", results)
-        ui.paint(results);
-      })
-      .catch(err => console.log(err));
-  }
+function getWeather() {
+  weather.getWeather()
+    .then(results => {
+      console.trace("app.js", results)
+      ui.paint(results);
+    })
+    .catch(err => console.log(err));
+}
 
-  
+
 // })
-  
+
 // function getWeather2() {
 //   weather2.getWeather2()
 //     .then(results2 => {

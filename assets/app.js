@@ -8,10 +8,10 @@
 const m = moment();
 
 // Init storage
-// const storage = new Storage();
+const storage = new Storage(city);
 
 // Get stored location data
-// const weatherLocation = storage.getLocationData();
+const weatherLocation = storage.getLocationData(city);
 
 // Init weather object
 const weather = new Weather('Miami');
@@ -22,24 +22,22 @@ weather.getWeather();
 // const weather2 = new Weather2();
 
 // Init UI
-const ui = new UI();
+const ui = new UI('Miami');
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
 // document.addEventListener('DOMContentLoaded', getWeather2);
 
 // Change location event
-document.getElementById('w-change-btn').addEventListener('click', (e) => {
+document.getElementById('w-change-btn').addEventListener('click', () => {
   const city = document.getElementById('city').value;
-
-  console.log(city)
 
   // Change location
   weather.changeLocation(city);
 
 
   // Set location in LS
-  // storage.setLocationData(city);
+  storage.setLocationData(city);
 
   // Get and display weather
   getWeather();

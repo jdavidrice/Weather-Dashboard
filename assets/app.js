@@ -1,6 +1,6 @@
 
 // jQuery wrapper
-$(document).ready(function () {
+// $(document).ready(function () {
 
   // Solution 4
 
@@ -56,7 +56,7 @@ $(document).ready(function () {
   }
 
   
-})
+// })
   
 // function getWeather2() {
 //   weather2.getWeather2()

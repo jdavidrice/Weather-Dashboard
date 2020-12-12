@@ -1,10 +1,11 @@
-$(document).ready(function () {
+// $(document).ready(function () {
   
 class UI {
   constructor() {
     this.city = document.getElementById('city');
     this.date = document.getElementById('date');
     this.icon = document.getElementById('icon');
+    this.desc = document.getElementById('desc');
     this.temp = document.getElementById('temp');
     this.humidity = document.getElementById('humidity');
     this.windSpeed = document.getElementById('windSpeed');
@@ -15,7 +16,8 @@ class UI {
   paint(weather) {
     this.city.textContent = `${weather.name}`;
     this.date.textContent = `${m.format('dddd, MMMM Do YYYY')}`;
-    $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}`);
+    this.desc.textContent = `${weather.weather[0].description}`;
+    $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`);
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
@@ -26,7 +28,7 @@ class UI {
 }
 
 
-})
+// })
 
 
   //     // Transfer content to HTML

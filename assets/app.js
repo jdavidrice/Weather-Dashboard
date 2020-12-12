@@ -33,7 +33,7 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const city = document.getElementById('city').value;
 
   // Change location
-  weather.changeLocation('Miami');
+  weather.changeLocation("Miami");
 
   // Set location in LS
   // storage.setLocationData(city);
@@ -55,8 +55,11 @@ function getWeather() {
     .catch(err => console.log(err));
 }
 
-
+// Below this line are the closing delimiters for the ready function at the top of the page
 // })
+
+
+
 
 // function getWeather2() {
 //   weather2.getWeather2()

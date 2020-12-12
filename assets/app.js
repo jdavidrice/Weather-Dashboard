@@ -16,13 +16,13 @@ const weatherLocation = storage.getLocationData(city);
 // Init weather object
 const weather = new Weather('Miami');
 
-weather.getWeather();
+weather.getWeather(city);
 
 // Init weather2 object
 // const weather2 = new Weather2();
 
 // Init UI
-const ui = new UI('Miami');
+const ui = new UI(city);
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);

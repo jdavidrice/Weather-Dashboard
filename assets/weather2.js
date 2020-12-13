@@ -9,7 +9,7 @@ class Weather2 {
   }
 
 
-  // Second fetch to API that provides UV data and 5-day forcast
+  // Second fetch to API that provides UV data
   async getWeather2() {
     const response2 = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}`);
 

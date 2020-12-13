@@ -11,19 +11,12 @@ class Weather {
   async getWeather() {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}&units=imperial`);
 
-    
-    // Response Data
     const responseData = await response.json();
-
-    // console.trace(response);
-    // console.trace(this.city);
-    // console.trace(responseData);
-    // console.log("weather.js", getWeather)
-
+    
     return responseData;
 
-
   }
+
 
   // Change weather location
   changeLocation(city) {

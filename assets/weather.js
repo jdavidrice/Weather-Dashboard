@@ -12,8 +12,15 @@ class Weather {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}&units=imperial`);
 
     const responseData = await response.json();
+
+    const responseIds = response.map(response => response.id),
+      responseReqOpts = { method: 'POST', body: JSON.stringify({ responseIds }) };
     
-    return responseData;
+    const forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${this.city}&appid=${this.apiKey}&units=imperial`, responseReqOpts);
+
+    const forecastData = await forecast.json();
+
+    return responseData, forecastData;
 
   }
 

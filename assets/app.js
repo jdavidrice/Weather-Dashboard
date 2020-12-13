@@ -17,7 +17,7 @@ const weatherLocation = storage.getLocationData();
 const weather = new Weather(weatherLocation.city);
 
 // Init forecast object
-const forecast = new Forecast(weatherLocation.city);
+// const forecast = new Forecast(weatherLocation.city);
 
 // Init weather2 object
 // const weather2 = new Weather2();
@@ -27,7 +27,11 @@ const ui = new UI();
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
-document.addEventListener('DOMContentLoaded', getForecast);
+
+// Get forecast on DOM load
+// document.addEventListener('DOMContentLoaded', getForecast);
+
+// Get UV on DOM load
 // document.addEventListener('DOMContentLoaded', getWeather2);
 
 // Change location event
@@ -44,7 +48,7 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   getWeather();
 
   // Get and display forecast
-  getForecast();
+  // getForecast();
 
   // Close modal
   $('#locModal').modal('hide');
@@ -60,14 +64,14 @@ function getWeather() {
     .catch(err => console.log(err));
 }
 
-function getForecast() {
-  forecast.getForecast()
-    .then(results2 => {
-      // console.trace("app.js", results)
-      ui.paint(results2);
-    })
-    .catch(err => console.log(err));
-}
+// function getForecast() {
+//   forecast.getForecast()
+//     .then(results2 => {
+//       // console.trace("app.js", results)
+//       ui.paint(results2);
+//     })
+//     .catch(err => console.log(err));
+// }
 
 // Below this line are the closing delimiters for the ready function at the top of the page
 // })

@@ -22,7 +22,7 @@ class UI {
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
-    // this.uvIndex.textContent = `UV Index: ${uvData.current.uvi}`;
+    // this.uvData.textContent = `UV Index: ${uvData.current.uvi}`;
 
   }
 

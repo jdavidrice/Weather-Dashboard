@@ -31,12 +31,19 @@ class Weather2 {
 
 
 
+function getUvData() {
+  const uvURL = response2;
+  console.log(uvURL)
+    .then(function (uvData) {
+      $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
+  })
+}
 
+getUvData(response.coord.lat, response.coord.lon)
 
-
-// let lat = weather.coord.lat
-// let lon = weather.coord.lon
-// getUvData(lat, lon)
+let lat = weather.coord.lat
+let lon = weather.coord.lon
+getUvData(lat, lon)
 
 
 

@@ -8,28 +8,26 @@
 const m = moment();
 
 // Init storage
-const storage = new Storage(city);
+const storage = new Storage();
 
 // Get stored location data
-const weatherLocation = storage.getLocationData(city);
+const weatherLocation = storage.getLocationData();
 
 // Init weather object
-const weather = new Weather('Miami');
-
-weather.getWeather(city);
+const weather = new Weather(weatherLocation.city);
 
 // Init weather2 object
 // const weather2 = new Weather2();
 
 // Init UI
-const ui = new UI(city);
+const ui = new UI();
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
 // document.addEventListener('DOMContentLoaded', getWeather2);
 
 // Change location event
-document.getElementById('w-change-btn').addEventListener('click', () => {
+document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const city = document.getElementById('city').value;
 
   // Change location
@@ -50,7 +48,7 @@ document.getElementById('w-change-btn').addEventListener('click', () => {
 function getWeather() {
   weather.getWeather()
     .then(results => {
-      console.trace("app.js", results)
+      // console.trace("app.js", results)
       ui.paint(results);
     })
     .catch(err => console.log(err));

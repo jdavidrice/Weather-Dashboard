@@ -46,7 +46,6 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
 
   // Get and display weather
   getWeather();
-
   // Get and display forecast
   // getForecast();
 

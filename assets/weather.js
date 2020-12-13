@@ -13,15 +13,17 @@ class Weather {
 
     const responseData = await response.json();
 
-    const responseIds = response.map(response => response.id),
-      responseReqOpts = { method: 'POST', body: JSON.stringify({ responseIds }) };
+    console.trace(responseData)
+
+    // const responseIds = response.map(response => response.id),
+    //   responseReqOpts = { method: 'POST', body: JSON.stringify({ responseIds }) };
     
-    const forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${this.city}&appid=${this.apiKey}&units=imperial`, responseReqOpts);
+    // const forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${this.city}&appid=${this.apiKey}&units=imperial`, responseReqOpts);
 
-    const forecastData = await forecast.json();
+    // const forecastData = await forecast.json();
 
-    return responseData, forecastData;
-
+    return responseData;
+                    //  , forecastData
   }
 
 

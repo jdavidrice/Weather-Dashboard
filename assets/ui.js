@@ -1,6 +1,6 @@
 // jQuery wrapper
 // $(document).ready(function () {
-  
+
 class UI {
   constructor() {
     this.city = document.getElementById('nameOfCity');
@@ -11,6 +11,7 @@ class UI {
     this.humidity = document.getElementById('humidity');
     this.windSpeed = document.getElementById('windSpeed');
     this.uvIndex = document.getElementById('uvIndex');
+    this.recentLocations = document.getElementById('recentLocations');
 
   }
 
@@ -23,10 +24,35 @@ class UI {
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
     // this.uvData.textContent = `UV Index: ${uvData.current.uvi}`;
+    this.recentLocations.textContent = `${weather.name}`;
 
   }
 
 }
+
+// // Save name of city to list
+// const input = this.city;
+// const locations = document.getElementById('recentLocations');
+// const saveBtn = document.getElementById('w-change-btn');
+
+// const liMaker = (text) => {
+//   const li = document.createElement('li')
+//   li.textContent = text
+//   locations.appendChild(li)
+// }
+
+// saveBtn.addEventListener('click', function (e) {
+//   e.preventDefault()
+
+//   liMaker(input.value)
+//   input.value = ''
+
+// })
+
+
+
+
+
 
 // Below this line are the closing delimiters for the ready function at the top of the page
 // })

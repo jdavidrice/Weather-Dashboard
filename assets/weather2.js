@@ -30,15 +30,9 @@ class Weather2 {
 }
 
 
-function getUvData() {
-  const uvURL = response2;
-  console.log(uvURL)
-    .then(function (uvData) {
-      $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
-    })
-}
 
-getUvData()
+
+
 
 // let lat = weather.coord.lat
 // let lon = weather.coord.lon

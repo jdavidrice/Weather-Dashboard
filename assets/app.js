@@ -1,4 +1,3 @@
-
 // jQuery wrapper
 // $(document).ready(function () {
 
@@ -17,7 +16,7 @@ const weatherLocation = storage.getLocationData();
 const weather = new Weather(weatherLocation.city);
 
 // Init weather2 object
-// const weather2 = new Weather2();
+const weather2 = new Weather2();
 
 // Init UI
 const ui = new UI();
@@ -33,43 +32,37 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   // Change location
   weather.changeLocation(city);
 
-
   // Set location in LS
   storage.setLocationData(city);
 
   // Get and display weather
   getWeather();
+  getWeather2();
 
   // Close modal
   $('#locModal').modal('hide');
 });
 
-
 function getWeather() {
   weather.getWeather()
     .then(results => {
-      // console.trace("app.js", results)
+      console.trace("getWeather", results)
       ui.paint(results);
+    })
+    .catch(err => console.log(err));
+}
+
+function getWeather2() {
+  weather2.getWeather2()
+    .then(results2 => {
+      console.trace("getWeather2", results2);
+      ui.paint(results2);
     })
     .catch(err => console.log(err));
 }
 
 // Below this line are the closing delimiters for the ready function at the top of the page
 // })
-
-
-
-
-// function getWeather2() {
-//   weather2.getWeather2()
-//     .then(results2 => {
-//       console.log("getWeather2", results2);
-//       ui.paint(results2);
-//     })
-//     .catch(err => console.log(err));
-// }
-
-
 
 
 // The symbol below is the code for the degree symbol
@@ -95,9 +88,6 @@ function getWeather() {
 
   // Daily Weather api (no UV index)
   // var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
-
-
-
 
   // // This is the most recent city chosen
   // var mostRecentCity = localStorage.getItem('mostRecentCity')
@@ -176,7 +166,7 @@ function getWeather() {
 
   // }
 
-  // Possibley use this for the UV data function with API call (from Chris B.)
+  // Possibly use this for the UV data function with API call (from Chris B.)
   // async function getData() {
   //   try {
   //     const firstCall = await ajax()

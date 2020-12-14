@@ -30,6 +30,15 @@ class UI {
 
 }
 
+// Colors for UV levels
+
+// Green (<2, low) = rgb: 131, 197,1
+// Orange (3-5, moderate) = rgb: 247, 178, 0
+// Red (6-7, high) = rgb: 238, 63, 8
+// Purple (8-10, very high) = rgb: 246, 7, 162
+// Violet (11+, extreme) = rgb: 112, 182, 254
+
+
 // // Save name of city to list
 // const input = this.city;
 // const locations = document.getElementById('recentLocations');

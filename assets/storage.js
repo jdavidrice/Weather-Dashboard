@@ -27,9 +27,14 @@
   }
 
 let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
-
+const input = document.getElementById('nameOfCity.value');
+// localStorage.setItem('items', JSON.stringify(itemsArray))
+const data = JSON.parse(localStorage.getItem('items'))
+    
+itemsArray.push(city)
 localStorage.setItem('items', JSON.stringify(itemsArray))
-    const data = JSON.parse(localStorage.getItem('items'))
+// liMaker(input.value)
+// input.value = ''
 
 
 // Below this line are the closing delimiters for the ready function at the top of the page

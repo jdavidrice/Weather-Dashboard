@@ -1,38 +1,39 @@
 // jQuery wrapper
 // $(document).ready(function () {
 
-  class Storage {
-    constructor() {
-      this.city;
-      this.defaultCity = 'Miami';
-      
-    }
-
-    getLocationData() {
-      if (localStorage.getItem('city') === null) {
-        this.city = this.defaultCity;
-      } else {
-        this.city = localStorage.getItem('city');
-      }
-
-      return {
-        city: this.city,
-      }
-    }
-
-    setLocationData(city) {
-      localStorage.setItem('city', city);
-    }
+class Storage {
+  constructor() {
+    this.city;
+    this.defaultCity = 'Miami';
 
   }
 
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+  getLocationData() {
+    if (localStorage.getItem('city') === null) {
+      this.city = this.defaultCity;
+    } else {
+      this.city = localStorage.getItem('city');
+    }
+
+    return {
+      city: this.city,
+    }
+  }
+
+  setLocationData(city) {
+    localStorage.setItem('city', city);
+  }
+
+}
+
+let citiesArray = localStorage.getItem('cities') ? JSON.parse(localStorage.getItem('cities')) : []
 const input = document.getElementById('nameOfCity.value');
-// localStorage.setItem('items', JSON.stringify(itemsArray))
-const data = JSON.parse(localStorage.getItem('items'))
-    
-itemsArray.push(city)
-localStorage.setItem('items', JSON.stringify(itemsArray))
+const MAX_CITIES = 5
+// localStorage.setItem('cities', JSON.stringify(citiesArray))
+const data = JSON.parse(localStorage.getItem('cities'))
+
+citiesArray.push(city)
+localStorage.setItem('cities', JSON.stringify(citiesArray))
 // liMaker(input.value)
 // input.value = ''
 

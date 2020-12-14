@@ -36,7 +36,7 @@ function getUvData() {
   console.log(uvURL)
     .then(function (uvData) {
       $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
-  })
+    })
 }
 
 getUvData(response.coord.lat, response.coord.lon)

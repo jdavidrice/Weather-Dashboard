@@ -20,7 +20,7 @@ class Forecast {
   // Change weather location
   // changeLocation(city) {
   //   this.city = city;
-  }
+  // }
 
   // The curly bracket below closes the Weather class from the top of the page
 }  

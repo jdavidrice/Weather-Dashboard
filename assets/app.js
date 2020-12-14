@@ -38,6 +38,11 @@ document.addEventListener('DOMContentLoaded', getWeather);
 document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const city = document.getElementById('city').value;
 
+  // itemsArray.push(input.value)
+  // localStorage.setItem('items', JSON.stringify(itemsArray))
+  // liMaker(input.value)
+  // input.value = ''
+
   // Change location
   weather.changeLocation(city);
 

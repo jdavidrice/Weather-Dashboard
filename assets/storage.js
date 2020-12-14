@@ -5,6 +5,7 @@
     constructor() {
       this.city;
       this.defaultCity = 'Miami';
+      
     }
 
     getLocationData() {
@@ -24,6 +25,12 @@
     }
 
   }
+
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+
+localStorage.setItem('items', JSON.stringify(itemsArray))
+    const data = JSON.parse(localStorage.getItem('items'))
+
 
 // Below this line are the closing delimiters for the ready function at the top of the page
 // })

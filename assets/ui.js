@@ -29,6 +29,75 @@ class UI {
   }
 
 }
+// Change UV color
+const LOW_THRESHOLD = 2;
+const MODERATE_THRESHOLD = 5;
+const HIGH_THRESHOLD = 7;
+const VERYHIGH_THRESHOLD = 10;
+const EXTREME_THRESHOLD = 11;
+
+const COLOR_CODES = {
+  low: {
+    background: "green",
+    threshold: LOW_THRESHOLD
+  },
+  moderate: {
+    background: "orange",
+    threshold: MODERATE_THRESHOLD
+  },
+  high: {
+    background: "red",
+    threshold: HIGH_THRESHOLD
+  },
+  veryHigh: {
+    background: "purple",
+    threshold: VERYHIGH_THRESHOLD
+  },
+  extreme: {
+    background: "violet",
+    threshold: EXTREME_THRESHOLD
+  }
+};
+
+const uvi = 1;
+
+function setUvColor(uvi) {
+  const { low, moderate, high, veryHigh, extreme } = COLOR_CODES;
+  if (uvi <= low.threshold) {
+    document
+      .getElementById('uvIndex')
+      .classList.add(low.background);
+  } else if (uvi <= moderate.threshold) {
+    document
+      .getElementById('uvIndex')
+      .classList.remove(low.background);
+    document
+      .getElementById('uvIndex')
+      .classList.add(moderate.background);
+  } else if (uvi <= high.threshold) {
+    document
+      .getElementById('uvIndex')
+      .classList.remove(moderate.background);
+    document
+      .getElementById('uvIndex')
+      .classList.add(high.background);
+  } else if (uvi <= veryHigh.threshold) {
+    document
+      .getElementById('uvIndex')
+      .classList.remove(high.background);
+    document
+      .getElementById('uvIndex')
+      .classList.add(veryHigh.background);
+  } else if (uvi >= extreme.threshold) {
+    document
+      .getElementById('uvIndex')
+      .classList.remove(veryHigh.background);
+    document
+      .getElementById('uvIndex')
+      .classList.add(extreme.background)
+  }
+}
+
 
 // Colors for UV levels
 

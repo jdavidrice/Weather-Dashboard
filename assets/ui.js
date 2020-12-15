@@ -27,8 +27,8 @@ class UI {
     this.recentLocations.textContent = `${weather.name}`;
 
   }
-
 }
+
 // Change UV color
 const LOW_THRESHOLD = 2;
 const MODERATE_THRESHOLD = 5;
@@ -46,23 +46,23 @@ const EXTREME_THRESHOLD = 11;
 
 const COLOR_CODES = {
   low: {
-    background: "green",
+    color: "green",
     threshold: LOW_THRESHOLD
   },
   moderate: {
-    background: "orange",
+    color: "orange",
     threshold: MODERATE_THRESHOLD
   },
   high: {
-    background: "red",
+    color: "red",
     threshold: HIGH_THRESHOLD
   },
   veryHigh: {
-    background: "purple",
+    color: "purple",
     threshold: VERYHIGH_THRESHOLD
   },
   extreme: {
-    background: "violet",
+    color: "violet",
     threshold: EXTREME_THRESHOLD
   }
 };
@@ -71,44 +71,48 @@ const uvi = 1;
 
 function setUvColor(uvi) {
   const { low, moderate, high, veryHigh, extreme } = COLOR_CODES;
-  if (uvi <= low.threshold) {
+  if (uvi = 1) {
     document
       .getElementById('uvIndex')
-      .classList.add(low.background);
+      .classList.add(low.color);
   } else if (uvi <= moderate.threshold) {
     document
       .getElementById('uvIndex')
-      .classList.remove(low.background);
+      .classList.remove(low.color);
     document
       .getElementById('uvIndex')
-      .classList.add(moderate.background);
+      .classList.add(moderate.color);
   } else if (uvi <= high.threshold) {
     document
       .getElementById('uvIndex')
-      .classList.remove(moderate.background);
+      .classList.remove(moderate.color);
     document
       .getElementById('uvIndex')
-      .classList.add(high.background);
+      .classList.add(high.color);
   } else if (uvi <= veryHigh.threshold) {
     document
       .getElementById('uvIndex')
-      .classList.remove(high.background);
+      .classList.remove(high.color);
     document
       .getElementById('uvIndex')
-      .classList.add(veryHigh.background);
-  } else (uvi >= extreme.threshold) 
+      .classList.add(veryHigh.color);
+  } else if (uvi >= extreme.threshold) {
     document
       .getElementById('uvIndex')
-      .classList.remove(veryHigh.background);
+      .classList.remove(veryHigh.color);
     document
       .getElementById('uvIndex')
-      .classList.add(extreme.background)
-  
+      .classList.add(extreme.color)
+  }
 }
 
 setUvColor(uvi);
 console.log("running", setUvColor)
 console.log("uvi", uvi)
+
+
+
+
 
 
 

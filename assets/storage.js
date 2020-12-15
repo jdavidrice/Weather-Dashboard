@@ -33,14 +33,14 @@ class Storage {
 
   setCitiesArray() {
     this.getCitiesArray();
-    this.history.push(this.city)
+    this.history.push(this.city);
     localStorage.setItem('cities', JSON.stringify(this.history))
+    ;
   }
 
 }
 
-
-// const input = document.getElementById('nameOfCity.value');
+// const input = document.getElementById('nameOfCity').value;
 // const MAX_CITIES = 5
 // // localStorage.setItem('cities', JSON.stringify(citiesArray))
 // const data = JSON.parse(localStorage.getItem('cities'))

@@ -3,9 +3,9 @@
 
 class Storage {
   constructor() {
-    this.city;
-    this.defaultCity = 'Miami';
-
+    this.city = '';
+    this.history = ['London'];
+    this.defaultCity = this.history[this.history.length - 1]
   }
 
   getLocationData() {
@@ -21,19 +21,32 @@ class Storage {
   }
 
   setLocationData(city) {
-    localStorage.setItem('city', city);
+    this.city = city;
+    localStorage.setItem('city', this.city);
+
+  }
+
+  getCitiesArray() {
+    const citiesArray = localStorage.getItem('cities') ? JSON.parse(localStorage.getItem('cities')) : []
+    this.history = citiesArray;
+  }
+
+  setCitiesArray() {
+    this.getCitiesArray();
+    this.history.push(this.city)
+    localStorage.setItem('cities', JSON.stringify(this.history))
   }
 
 }
 
-let citiesArray = localStorage.getItem('cities') ? JSON.parse(localStorage.getItem('cities')) : []
-const input = document.getElementById('nameOfCity.value');
-const MAX_CITIES = 5
-// localStorage.setItem('cities', JSON.stringify(citiesArray))
-const data = JSON.parse(localStorage.getItem('cities'))
 
-citiesArray.push(city)
-localStorage.setItem('cities', JSON.stringify(citiesArray))
+// const input = document.getElementById('nameOfCity.value');
+// const MAX_CITIES = 5
+// // localStorage.setItem('cities', JSON.stringify(citiesArray))
+// const data = JSON.parse(localStorage.getItem('cities'))
+
+// citiesArray.push(city)
+// localStorage.setItem('cities', JSON.stringify(citiesArray))
 // liMaker(input.value)
 // input.value = ''
 

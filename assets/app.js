@@ -13,6 +13,7 @@ const storage = new Storage();
 // Get stored location data
 const weatherLocation = storage.getLocationData();
 
+
 // Init weather object
 const weather = new Weather(weatherLocation.city);
 
@@ -43,6 +44,8 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
 
   // Set location in LS
   storage.setLocationData(city);
+
+  storage.setCitiesArray();
 
   // Get and display weather
   getWeather();

@@ -68,11 +68,11 @@ const COLOR_CODES = {
   }
 };
 
-const uvi = 1;
+const uvi = 7;
 
 function setUvColor(uvi) {
   const { low, moderate, high, veryHigh, extreme } = COLOR_CODES;
-  if (uvi = 1) {
+  if (uvi <= low.threshold) {
     document
       .getElementById('uvIndex')
       .classList.add(low.color);

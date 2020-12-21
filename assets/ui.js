@@ -68,7 +68,7 @@ const COLOR_CODES = {
   }
 };
 
-const uvi = 7;
+const uvi = 11;
 
 function setUvColor(uvi) {
   const { low, moderate, high, veryHigh, extreme } = COLOR_CODES;

@@ -2,17 +2,17 @@
   text-align: center;
 }
 .green {
-  color: rgb(131, 197,1);
+  background: rgb(131, 197,1);
 }
 .orange {
-  color: rgb(247, 178, 0);
+  background: rgb(247, 178, 0);
 }
 .red {
-  color: rgb(238, 63, 8);
+  background: rgb(238, 63, 8);
 }
 .purple {
-  color: rgb(246, 7, 162);
+  background: rgb(246, 7, 162);
 }
 .violet {
-  color: rgb(112, 182, 254);
+  background: rgb(112, 182, 254);
 }

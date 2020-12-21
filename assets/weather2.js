@@ -11,12 +11,12 @@ class Weather2 {
 
   // Second fetch to API that provides UV data
   async getWeather2() {
-    const response2 = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=29.76&lon=-95.36&appid=${this.apiKey}`);
 
-    const responseData2 = await response2.json();
-
-    return responseData2;
-
+    const responseData = await response.json();
+    
+    return responseData;
+    
   }
 
   // Change weather location
@@ -25,25 +25,26 @@ class Weather2 {
     this.lon = lon;
   }
 
+  
 
   // The curly bracket below closes the Weather2 class from the top of the page
 }
 
 
 
-function getUvData() {
-  const uvURL = response2;
-  console.log(uvURL)
-    .then(function (uvData) {
-      $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
-    })
-}
+// function getUvData() {
+//   const uvURL = response2;
+//   console.log(uvURL)
+//     .then(function (uvData) {
+//       $('#uvIndex').text(`UV Index: ${uvData.current.uvi}`);
+//     })
+// }
 
-getUvData(response.coord.lat, response.coord.lon)
+// getUvData(response2.coord.lat, response2.coord.lon)
 
-let lat = weather.coord.lat
-let lon = weather.coord.lon
-getUvData(lat, lon)
+// let lat = weather.coord.lat
+// let lon = weather.coord.lon
+// getUvData(lat, lon)
 
 
 

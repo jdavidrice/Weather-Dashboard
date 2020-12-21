@@ -13,7 +13,7 @@ class Weather {
 
     const responseData = await response.json();
 
-    console.log(responseData)
+    console.log("responseData", responseData)
 
     // const responseIds = response.map(response => response.id),
     //   responseReqOpts = { method: 'POST', body: JSON.stringify({ responseIds }) };

@@ -21,7 +21,7 @@ const weather = new Weather(weatherLocation.city);
 // const forecast = new Forecast(weatherLocation.city);
 
 // Init weather2 object
-// const weather2 = new Weather2();
+const weather2 = new Weather2();
 
 // Init UI
 const ui = new UI();
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', getWeather);
 // document.addEventListener('DOMContentLoaded', getForecast);
 
 // Get UV on DOM load
-// document.addEventListener('DOMContentLoaded', getWeather2);
+document.addEventListener('DOMContentLoaded', getWeather2);
 
 // Change location event
 document.getElementById('w-change-btn').addEventListener('click', (e) => {
@@ -50,7 +50,10 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   // Get and display weather
   getWeather();
   // Get and display forecast
-  // getForecast();
+  getForecast();
+  // Get and display UV
+  getWeather2();
+ 
 
   // Close modal
   $('#locModal').modal('hide');
@@ -68,29 +71,25 @@ function getWeather() {
 
 // function getForecast() {
 //   forecast.getForecast()
-//     .then(results2 => {
-//       // console.trace("app.js", results)
-//       ui.paint(results2);
+//     .then(results => {
+//       ui.paint(results);
 //     })
 //     .catch(err => console.log(err));
 // }
+
+
+function getWeather2() {
+  weather2.getWeather2()
+    .then(results => {
+      console.log("getWeather2", results);
+      ui.paint(results);
+    })
+    .catch(err => console.log(err));
+}
+
 
 // Below this line are the closing delimiters for the ready function at the top of the page
 // })
-
-
-
-
-// function getWeather2() {
-//   weather2.getWeather2()
-//     .then(results2 => {
-//       console.log("getWeather2", results2);
-//       ui.paint(results2);
-//     })
-//     .catch(err => console.log(err));
-// }
-
-
 
 
 // The symbol below is the code for the degree symbol
@@ -197,7 +196,7 @@ function getWeather() {
 
   // }
 
-  // Possibley use this for the UV data function with API call (from Chris B.)
+  // Possibly use this for the UV data function with API call (from Chris B.)
   // async function getData() {
   //   try {
   //     const firstCall = await ajax()

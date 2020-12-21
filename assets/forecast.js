@@ -11,16 +11,17 @@ class Forecast {
 
     const forecastResponseData = await forecastResponse.json();
 
-    console.log(forecastResponseData)
+    console.log("forecastResponsedata", forecastResponseData)
+
     return forecastResponseData;
 
   }
 
 
   // Change weather location
-  // changeLocation(city) {
-  //   this.city = city;
-  // }
+  changeLocation(city) {
+    this.city = city;
+  }
 
   // The curly bracket below closes the Weather class from the top of the page
 }  

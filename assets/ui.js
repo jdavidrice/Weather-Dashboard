@@ -23,7 +23,7 @@ class UI {
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
-    // this.uvData.textContent = `UV Index: ${uvData.current.uvi}`;
+    this.uvIndex.textContent = `UV Index: ${current.uvi}`;
     storage.getCitiesArray()
     this.recentLocations.textContent = `${storage.history}`;
 
@@ -36,7 +36,7 @@ const MODERATE_THRESHOLD = 5;
 const HIGH_THRESHOLD = 7;
 const VERYHIGH_THRESHOLD = 10;
 const EXTREME_THRESHOLD = 11;
-
+let uvi = 5;
 // Colors for UV levels
 
 // Green (<2, low) = rgb: 131, 197,1
@@ -68,7 +68,7 @@ const COLOR_CODES = {
   }
 };
 
-const uvi = 5;
+
 
 function setUvColor(uvi) {
   const { low, moderate, high, veryHigh, extreme } = COLOR_CODES;
@@ -108,6 +108,7 @@ function setUvColor(uvi) {
 }
 
 setUvColor(uvi);
+
 console.log("uvi", uvi)
 
 

@@ -11,7 +11,7 @@ class Forecast {
 
     const forecastResponseData = await forecastResponse.json();
 
-    console.trace(forecastResponseData)
+    console.log(forecastResponseData)
     return forecastResponseData;
 
   }

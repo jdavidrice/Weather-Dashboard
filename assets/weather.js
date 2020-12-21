@@ -13,17 +13,17 @@ class Weather {
 
     const responseData = await response.json();
 
-    console.trace(responseData)
+    console.log(responseData)
 
     // const responseIds = response.map(response => response.id),
     //   responseReqOpts = { method: 'POST', body: JSON.stringify({ responseIds }) };
-    
+
     // const forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${this.city}&appid=${this.apiKey}&units=imperial`, responseReqOpts);
 
     // const forecastData = await forecast.json();
 
     return responseData;
-                    //  , forecastData
+    //  , forecastData
   }
 
 
@@ -32,9 +32,9 @@ class Weather {
     this.city = city;
   }
 
-// The curly bracket below closes the Weather class from the top of the page
-}  
- 
+  // The curly bracket below closes the Weather class from the top of the page
+}
+
 // Here we run our AJAX call to the OpenWeatherMap API
 
   // $.ajax({
@@ -120,4 +120,4 @@ class Weather {
   //     })
 
   // }
-  
+

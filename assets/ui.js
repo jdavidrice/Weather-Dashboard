@@ -68,7 +68,7 @@ const COLOR_CODES = {
   }
 };
 
-const uvi = 11;
+const uvi = 5;
 
 function setUvColor(uvi) {
   const { low, moderate, high, veryHigh, extreme } = COLOR_CODES;
@@ -108,7 +108,6 @@ function setUvColor(uvi) {
 }
 
 setUvColor(uvi);
-console.log("running", setUvColor)
 console.log("uvi", uvi)
 
 

@@ -26,9 +26,23 @@ class UI {
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
     this.uvIndex.textContent = `UV Index: ${weather.uv}`;
     storage.getCitiesArray()
-    this.recentLocations.textContent = `${storage.history}`;
+    // this.recentLocations.textContent = `${storage.history}`;
+    this.createCityButtons(storage.history)
     uvi = weather.uv;
     setUvColor(uvi);
+  }
+
+  createCityButtons(cities) {
+    for (var i = 0; i < cities.length; i++) {
+      const button = document.createElement("button")
+      button.textContent = cities[i]
+      button.addEventListener("click", function () {
+        // Get city name
+        getWeather()
+      })
+      this.recentLocations.appendChild(button)
+    }
+
   }
 }
 

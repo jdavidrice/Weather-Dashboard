@@ -16,6 +16,7 @@ class UI {
   }
 
   paint(weather) {
+    console.log(weather)
     this.city.textContent = `${weather.name}`;
     this.date.textContent = `${m.format('dddd, MMMM Do YYYY')}`;
     this.desc.textContent = `${weather.weather[0].description}`;
@@ -23,10 +24,11 @@ class UI {
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
-    this.uvIndex.textContent = `UV Index: ${current.uvi}`;
+    this.uvIndex.textContent = `UV Index: ${weather.uv}`;
     storage.getCitiesArray()
     this.recentLocations.textContent = `${storage.history}`;
-
+    uvi = weather.uv;
+    setUvColor(uvi);
   }
 }
 
@@ -36,7 +38,7 @@ const MODERATE_THRESHOLD = 5;
 const HIGH_THRESHOLD = 7;
 const VERYHIGH_THRESHOLD = 10;
 const EXTREME_THRESHOLD = 11;
-let uvi = 5;
+let uvi;
 // Colors for UV levels
 
 // Green (<2, low) = rgb: 131, 197,1
@@ -107,7 +109,7 @@ function setUvColor(uvi) {
   }
 }
 
-setUvColor(uvi);
+
 
 console.log("uvi", uvi)
 

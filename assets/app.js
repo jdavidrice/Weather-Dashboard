@@ -20,9 +20,6 @@ const weather = new Weather(weatherLocation.city);
 // Init forecast object
 // const forecast = new Forecast(weatherLocation.city);
 
-// Init weather2 object
-const weather2 = new Weather2();
-
 // Init UI
 const ui = new UI();
 
@@ -32,8 +29,6 @@ document.addEventListener('DOMContentLoaded', getWeather);
 // Get forecast on DOM load
 // document.addEventListener('DOMContentLoaded', getForecast);
 
-// Get UV on DOM load
-document.addEventListener('DOMContentLoaded', getWeather2);
 
 // Change location event
 document.getElementById('w-change-btn').addEventListener('click', (e) => {
@@ -50,9 +45,9 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   // Get and display weather
   getWeather();
   // Get and display forecast
-  getForecast();
-  // Get and display UV
-  getWeather2();
+  // getForecast();
+
+
  
 
   // Close modal
@@ -78,14 +73,14 @@ function getWeather() {
 // }
 
 
-function getWeather2() {
-  weather2.getWeather2()
-    .then(results => {
-      console.log("getWeather2", results);
-      ui.paint(results);
-    })
-    .catch(err => console.log(err));
-}
+// function getWeather2() {
+//   weather2.getWeather2()
+//     .then(results => {
+//       console.log("getWeather2", results);
+//       ui.paint(results);
+//     })
+//     .catch(err => console.log(err));
+// }
 
 
 // Below this line are the closing delimiters for the ready function at the top of the page

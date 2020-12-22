@@ -12,18 +12,15 @@ class Weather {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}&units=imperial`);
 
     const responseData = await response.json();
+    
+    const lat = responseData.coord.lat
+    const lon = responseData.coord.lon
+    const UVresponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${this.apiKey}`);
 
-    console.log("responseData", responseData)
-
-    // const responseIds = response.map(response => response.id),
-    //   responseReqOpts = { method: 'POST', body: JSON.stringify({ responseIds }) };
-
-    // const forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${this.city}&appid=${this.apiKey}&units=imperial`, responseReqOpts);
-
-    // const forecastData = await forecast.json();
-
+    const UVresponseData = await UVresponse.json();
+    console.log(UVresponseData)
+    responseData.uv = UVresponseData.current.uvi
     return responseData;
-    //  , forecastData
   }
 
 

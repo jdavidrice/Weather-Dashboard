@@ -29,6 +29,7 @@ class UI {
     // this.recentLocations.textContent = `${storage.history}`;
     this.createCityButtons(storage.history)
     uvi = weather.uv;
+    console.log("UV", uvi)
     setUvColor(uvi);
   }
 
@@ -84,8 +85,6 @@ const COLOR_CODES = {
   }
 };
 
-
-
 function setUvColor(uvi) {
   const { low, moderate, high, veryHigh, extreme } = COLOR_CODES;
   if (uvi <= low.threshold) {
@@ -123,9 +122,6 @@ function setUvColor(uvi) {
   }
 }
 
-
-
-console.log("uvi", uvi)
 
 
 

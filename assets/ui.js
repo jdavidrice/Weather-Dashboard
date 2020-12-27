@@ -35,8 +35,11 @@ class UI {
 
   createCityButtons(cities) {
     for (var i = 0; i < cities.length; i++) {
-      const button = document.createElement("button")
-      button.textContent = cities[i]
+      const button = document.createElement("button");
+      // const button = $("<button>");
+      button.textContent = cities[i];
+      // button.addClass("city-name");
+      // button.attr("data-name", cities[i]);
       button.addEventListener("click", function () {
         // Get city name
         getWeather()

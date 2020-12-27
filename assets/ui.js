@@ -41,6 +41,7 @@ class UI {
       // button.addClass("city-name");
       // button.attr("data-name", cities[i]);
       button.addEventListener("click", function () {
+        this.city
         // Get city name
         getWeather()
       })
@@ -124,14 +125,6 @@ function setUvColor(uvi) {
       .classList.add(extreme.color)
   }
 }
-
-
-
-
-
-
-
-
 
 // // Save name of city to list
 // const input = this.city;

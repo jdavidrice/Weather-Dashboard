@@ -38,16 +38,16 @@ class UI {
       const button = document.createElement("button");
       // const button = $("<button>");
       button.textContent = cities[i];
-      // button.addClass("city-name");
       // button.attr("data-name", cities[i]);
+      // button.addClass("city-name");
       button.addEventListener("click", function () {
-        this.city
+        
+        // city = cities[i]
         // Get city name
-        getWeather()
+        getWeather(cities[i])
       })
       this.recentLocations.appendChild(button)
     }
-
   }
 }
 

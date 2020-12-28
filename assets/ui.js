@@ -36,16 +36,17 @@ class UI {
   createCityButtons(cities) {
     $("#recentLocations").empty();
     for (var i = 0; i < cities.length; i++) {
-      // const button = document.createElement("button");
-      let button = $("<button>");
+      const button = document.createElement("button");
+      // const button = $("<button>");
       button.textContent = cities[i];
       // button.attr("data-name", cities[i]);
       // button.addClass("city-name");
+      console.log(cities[i])
       button.addEventListener("click", function () {
         
-        // city = cities[i]
+        city = cities[i]
         // Get city name
-        getWeather(cities[i])
+        getWeather()
       })
       this.recentLocations.appendChild(button)
     }

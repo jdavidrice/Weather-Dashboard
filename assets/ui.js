@@ -34,9 +34,10 @@ class UI {
   }
 
   createCityButtons(cities) {
+    $("#recentLocations").empty();
     for (var i = 0; i < cities.length; i++) {
-      const button = document.createElement("button");
-      // const button = $("<button>");
+      // const button = document.createElement("button");
+      let button = $("<button>");
       button.textContent = cities[i];
       // button.attr("data-name", cities[i]);
       // button.addClass("city-name");

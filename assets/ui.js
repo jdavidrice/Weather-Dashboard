@@ -43,7 +43,6 @@ class UI {
       // button.addClass("city-name");
       console.log(cities[i])
       button.addEventListener("click", function () {
-        
         city = cities[i]
         // Get city name
         getWeather()
@@ -60,13 +59,6 @@ const HIGH_THRESHOLD = 7;
 const VERYHIGH_THRESHOLD = 10;
 const EXTREME_THRESHOLD = 11;
 let uvi;
-// Colors for UV levels
-
-// Green (<2, low) = rgb: 131, 197,1
-// Orange (3-5, moderate) = rgb: 247, 178, 0
-// Red (6-7, high) = rgb: 238, 63, 8
-// Purple (8-10, very high) = rgb: 246, 7, 162
-// Violet (11+, extreme) = rgb: 112, 182, 254
 
 const COLOR_CODES = {
   low: {

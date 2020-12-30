@@ -12,6 +12,11 @@ class UI {
     this.windSpeed = document.getElementById('windSpeed');
     this.uvIndex = document.getElementById('uvIndex');
     this.recentLocations = document.getElementById('recentLocations');
+    this.dayOne = document.getElementById('dayOne');
+    this.dayTwo = document.getElementById('dayTwo');
+    this.dayThree = document.getElementById('dayThree');
+    this.dayFour = document.getElementById('dayFour');
+    this.dayFive= document.getElementById('dayFive');
 
   }
 
@@ -31,6 +36,7 @@ class UI {
     uvi = weather.uv;
     console.log("UV", uvi)
     setUvColor(uvi);
+    this.dayOne.textContent = `${weather.daily[1].weather[0].description}`;
   }
 
   createCityButtons(cities) {

@@ -21,7 +21,7 @@ class UI {
   }
 
   paint(weather) {
-    console.log(weather)
+    // console.log(weather)
     this.city.textContent = `${weather.name}`;
     this.date.textContent = `${m.format('dddd, MMMM Do YYYY')}`;
     this.desc.textContent = `${weather.weather[0].description}`;
@@ -36,7 +36,11 @@ class UI {
     uvi = weather.uv;
     console.log("UV", uvi)
     setUvColor(uvi);
-    this.dayOne.textContent = `${weather.daily[1].weather[0].description}`;
+    this.dayOne.textContent = `${weather.dayOne.weather[0].description}`;
+    this.dayTwo.textContent = `${weather.dayTwo.weather[0].description}`;
+    this.dayThree.textContent = `${weather.dayThree.weather[0].description}`;
+    this.dayFour.textContent = `${weather.dayFour.weather[0].description}`;
+    this.dayFive.textContent = `${weather.dayFive.weather[0].description}`;
   }
 
   createCityButtons(cities) {

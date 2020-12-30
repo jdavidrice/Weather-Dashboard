@@ -12,18 +12,24 @@ class Weather {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}&units=imperial`);
 
     const responseData = await response.json();
+    console.log("First", responseData)
     
     const lat = responseData.coord.lat
     const lon = responseData.coord.lon
     const UVresponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${this.apiKey}`);
 
     const UVresponseData = await UVresponse.json();
-    console.log(UVresponseData)
+    console.log("Second", UVresponseData)
     responseData.uv = UVresponseData.current.uvi
+    responseData.dayOne = UVresponseData.daily[1]
+    responseData.dayTwo = UVresponseData.daily[2]
+    responseData.dayThree = UVresponseData.daily[3]
+    responseData.dayFour = UVresponseData.daily[4]
+    responseData.dayFive = UVresponseData.daily[5]
+    // console.log("Day One", responseData.dayOne)
+    // console.log(responseData.dayOne.weather[0].description)
     return responseData;
   }
-
-
   // Change weather location
   changeLocation(city) {
     this.city = city;

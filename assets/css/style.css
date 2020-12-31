@@ -16,3 +16,17 @@
 .violet {
   background: rgb(112, 182, 254);
 }
+
+/* .container {
+  display: grid;
+} */
+
+.item {
+  display: flex;
+  padding: auto;
+  margin: auto;
+}
+
+/* .list-group-item {
+  align-items: center;
+} */

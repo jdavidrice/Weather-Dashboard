@@ -12,16 +12,21 @@ class UI {
     this.windSpeed = document.getElementById('windSpeed');
     this.uvIndex = document.getElementById('uvIndex');
     this.recentLocations = document.getElementById('recentLocations');
-    this.dayOne = document.getElementById('dayOne');
-    this.dayTwo = document.getElementById('dayTwo');
-    this.dayThree = document.getElementById('dayThree');
-    this.dayFour = document.getElementById('dayFour');
-    this.dayFive = document.getElementById('dayFive');
+    // this.dayOne = document.getElementById('dayOne');
+    // this.dayTwo = document.getElementById('dayTwo');
+    // this.dayThree = document.getElementById('dayThree');
+    // this.dayFour = document.getElementById('dayFour');
+    // this.dayFive = document.getElementById('dayFive');
     this.dayOneIcon = document.getElementById('dayOneIcon');
     this.dayTwoIcon = document.getElementById('dayTwoIcon');
     this.dayThreeIcon = document.getElementById('dayThreeIcon');
     this.dayFourIcon = document.getElementById('dayFourIcon');
     this.dayFiveIcon = document.getElementById('dayFiveIcon');
+    this.dayOneDesc = document.getElementById('dayOneDesc');
+    this.dayTwoDesc = document.getElementById('dayTwoDesc');
+    this.dayThreeDesc = document.getElementById('dayThreeDesc');
+    this.dayFourDesc = document.getElementById('dayFourDesc');
+    this.dayFiveDesc = document.getElementById('dayFiveDesc');
 
   }
 
@@ -41,11 +46,11 @@ class UI {
     uvi = weather.uv;
     console.log("UV", uvi)
     setUvColor(uvi);
-    // this.dayOne.textContent = `${weather.dayOne.weather[0].description}`;
-    // this.dayTwo.textContent = `${weather.dayTwo.weather[0].description}`;
-    // this.dayThree.textContent = `${weather.dayThree.weather[0].description}`;
-    // this.dayFour.textContent = `${weather.dayFour.weather[0].description}`;
-    // this.dayFive.textContent = `${weather.dayFive.weather[0].description}`;
+    this.dayOneDesc.textContent = `${weather.dayOne.weather[0].description}`;
+    this.dayTwoDesc.textContent = `${weather.dayTwo.weather[0].description}`;
+    this.dayThreeDesc.textContent = `${weather.dayThree.weather[0].description}`;
+    this.dayFourDesc.textContent = `${weather.dayFour.weather[0].description}`;
+    this.dayFiveDesc.textContent = `${weather.dayFive.weather[0].description}`;
     $('#dayOneIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayOne.weather[0].icon}@2x.png`}`);
     $('#dayTwoIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayTwo.weather[0].icon}@2x.png`}`);
     $('#dayThreeIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayThree.weather[0].icon}@2x.png`}`);

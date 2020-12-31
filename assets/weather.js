@@ -13,10 +13,10 @@ class Weather {
 
     const responseData = await response.json();
     console.log("First", responseData)
-    
+
     const lat = responseData.coord.lat
     const lon = responseData.coord.lon
-    const UVresponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${this.apiKey}`);
+    const UVresponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${this.apiKey}&units=imperial`);
 
     const UVresponseData = await UVresponse.json();
     console.log("Second", UVresponseData)

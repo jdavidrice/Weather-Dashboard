@@ -22,10 +22,12 @@
 .grid-container--fill {
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     align-items: center;
+    text-align: center;
 }
 .grid-container--fit {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     align-items: center;
+    text-align: center;
 }
 .grid-element {
   background-color: deepPink;
@@ -33,11 +35,14 @@
   color: #fff;
   border: 1px solid #fff;
   width: auto;
-  height: auto;
+  height: 80px;
 }
 #dayFourIcon {
   height: 80px;
   width: 80px;
+  /* position: fixed; */
+  align-items: center;
+  text-align: center;
  
  
 }

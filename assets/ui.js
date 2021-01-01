@@ -27,6 +27,7 @@ class UI {
     this.dayTwoDesc = document.getElementById('dayTwoDesc');
     this.dayThreeDesc = document.getElementById('dayThreeDesc');
     this.dayFourDesc = document.getElementById('dayFourDesc');
+    this.dayFourDate = document.getElementById('dayFourDate');
     this.dayFiveDesc = document.getElementById('dayFiveDesc');
 
   }
@@ -48,11 +49,12 @@ class UI {
     console.log("UV", uvi)
     setUvColor(uvi);
     this.dayOneDesc.textContent = `${weather.dayOne.weather[0].description}`;
-    this.dayOneDate.textContent = `${date}`;
+    this.dayOneDate.textContent = `${date.toLocaleDateString()}`;
 
     this.dayTwoDesc.textContent = `${weather.dayTwo.weather[0].description}`;
     this.dayThreeDesc.textContent = `${weather.dayThree.weather[0].description}`;
     this.dayFourDesc.textContent = `${weather.dayFour.weather[0].description}`;
+    this.dayFourDate.textContent = `${date.toLocaleDateString()}`;
     this.dayFiveDesc.textContent = `${weather.dayFive.weather[0].description}`;
     $('#dayOneIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayOne.weather[0].icon}@2x.png`}`);
     $('#dayTwoIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayTwo.weather[0].icon}@2x.png`}`);

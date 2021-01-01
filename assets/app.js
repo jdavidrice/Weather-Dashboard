@@ -5,7 +5,12 @@
 // Solution 4
 
 // Moment instance
-const m = moment();
+// const m = moment();
+
+// Date and time
+ 
+let now = new Date();
+console.log(now.toDateString());
 
 // Init storage
 const storage = new Storage();

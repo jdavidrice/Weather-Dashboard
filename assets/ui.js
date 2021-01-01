@@ -33,7 +33,7 @@ class UI {
   paint(weather) {
     // console.log(weather)
     this.city.textContent = `${weather.name}`;
-    this.date.textContent = `${m.format('dddd, MMMM Do YYYY')}`;
+    this.date.textContent = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
     this.desc.textContent = `${weather.weather[0].description}`;
     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`);
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;

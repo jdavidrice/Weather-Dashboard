@@ -33,7 +33,7 @@ class UI {
     this.dayThreeDate = document.getElementById('dayThreeDesc');
 
     this.dayFourDesc = document.getElementById('dayFourDesc');
-    this.dayFourDate = document.getElementById('dayFourDesc');
+    this.dayFourDate = document.getElementById('dayFourDate');
 
     this.dayFiveDesc = document.getElementById('dayFiveDesc');
     this.dayFiveDate = document.getElementById('dayFiveDesc');
@@ -43,7 +43,7 @@ class UI {
   paint(weather) {
     // console.log(weather)
     this.city.textContent = `${weather.name}`;
-    this.date.textContent = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+    this.date.textContent = `${now.toDateString()} ${now.toLocaleTimeString()}`;
     this.desc.textContent = `${weather.weather[0].description}`;
     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`);
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
@@ -78,20 +78,20 @@ class UI {
     let dayFiveDate = new Date(dayFiveJsTime);
 
     this.dayOneDesc.textContent = `${weather.dayOne.weather[0].description}`;
-    this.dayOneDate.textContent = `${dayOneDate}`;
+    this.dayOneDate.textContent = `${dayOneDate.toDateString()}`;
 
     this.dayTwoDesc.textContent = `${weather.dayTwo.weather[0].description}`;
-    this.dayTwoDate.textContent = `${dayTwoDate}`;
+    this.dayTwoDate.textContent = `${dayTwoDate.toDateString()}`;
 
     this.dayThreeDesc.textContent = `${weather.dayThree.weather[0].description}`;
-    this.dayThreeDate.textContent = `${dayThreeDate}`;
+    this.dayThreeDate.textContent = `${dayThreeDate.toDateString()}`;
 
     this.dayFourDesc.textContent = `${weather.dayFour.weather[0].description}`;
-    this.dayFourDate.textContent = `${dayFourDate}`;
+    this.dayFourDate.textContent = `${dayFourDate.toDateString()}`;
 
     this.dayFiveDesc.textContent = `${weather.dayFive.weather[0].description}`;
-    this.dayFiveDate.textContent = `${dayFiveDate}`;
-    
+    this.dayFiveDate.textContent = `${dayFiveDate.toDateString()}`;
+
     $('#dayOneIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayOne.weather[0].icon}@2x.png`}`);
     $('#dayTwoIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayTwo.weather[0].icon}@2x.png`}`);
     $('#dayThreeIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayThree.weather[0].icon}@2x.png`}`);

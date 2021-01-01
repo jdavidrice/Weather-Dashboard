@@ -23,6 +23,7 @@ class UI {
     this.dayFourIcon = document.getElementById('dayFourIcon');
     this.dayFiveIcon = document.getElementById('dayFiveIcon');
     this.dayOneDesc = document.getElementById('dayOneDesc');
+    this.dayOneDate = document.getElementById('dayOneDesc')
     this.dayTwoDesc = document.getElementById('dayTwoDesc');
     this.dayThreeDesc = document.getElementById('dayThreeDesc');
     this.dayFourDesc = document.getElementById('dayFourDesc');
@@ -33,7 +34,7 @@ class UI {
   paint(weather) {
     // console.log(weather)
     this.city.textContent = `${weather.name}`;
-    this.date.textContent = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+    this.date.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
     this.desc.textContent = `${weather.weather[0].description}`;
     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`);
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
@@ -47,6 +48,8 @@ class UI {
     console.log("UV", uvi)
     setUvColor(uvi);
     this.dayOneDesc.textContent = `${weather.dayOne.weather[0].description}`;
+    this.dayOneDate.textContent = `${date}`;
+
     this.dayTwoDesc.textContent = `${weather.dayTwo.weather[0].description}`;
     this.dayThreeDesc.textContent = `${weather.dayThree.weather[0].description}`;
     this.dayFourDesc.textContent = `${weather.dayFour.weather[0].description}`;

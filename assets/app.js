@@ -9,8 +9,7 @@
 
 // Date and time
  
-let now = new Date();
-console.log(now.toDateString());
+let date = new Date();
 
 // Init storage
 const storage = new Storage();

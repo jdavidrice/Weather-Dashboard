@@ -30,7 +30,7 @@
     text-align: center;
 }
 .grid-element {
-  background-color: deepPink;
+  /* background-color: deepPink; */
   padding: 10px;
   color: #fff;
   border: 1px solid #fff;

@@ -7,22 +7,22 @@
 // Moment instance
 // const m = moment();
 
-// Date and time
- 
-let date = new Date();
-
 // Init storage
 const storage = new Storage();
 
 // Get stored location data
 const weatherLocation = storage.getLocationData();
 
-
 // Init weather object
 const weather = new Weather(weatherLocation.city);
 
 // Init UI
 const ui = new UI();
+
+// Date and time
+let now = new Date();
+
+
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);

@@ -55,8 +55,9 @@ class UI {
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
     this.uvIndex.textContent = `UV Index: ${weather.uv}`;
+
     storage.getCitiesArray()
-    // this.recentLocations.textContent = `${storage.history}`;
+
     this.createCityButtons(storage.history)
 
     uvi = weather.uv;
@@ -112,7 +113,6 @@ class UI {
     this.dayFiveTemp.textContent = `Daytime Temp: ${weather.dayFive.temp.day} Degrees F`;
     this.dayFiveHumidity.textContent = `Humidity: ${weather.dayFive.humidity}%`
   }
-
   createCityButtons(cities) {
     $("#recentLocations").empty();
     for (var i = 0; i < cities.length; i++) {

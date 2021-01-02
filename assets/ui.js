@@ -55,9 +55,11 @@ class UI {
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
     this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
     this.uvIndex.textContent = `UV Index: ${weather.uv}`;
+
     storage.getCitiesArray()
-    // this.recentLocations.textContent = `${storage.history}`;
+
     this.createCityButtons(storage.history)
+
     uvi = weather.uv;
     console.log("UV", uvi)
     setUvColor(uvi);
@@ -112,21 +114,23 @@ class UI {
     this.dayFiveTemp.textContent = `Daytime Temp: ${weather.dayFive.temp.day} Degrees F`;
     this.dayFiveHumidity.textContent = `Humidity: ${weather.dayFive.humidity}%`
   }
-
   createCityButtons(cities) {
     $("#recentLocations").empty();
     for (var i = 0; i < cities.length; i++) {
       const button = document.createElement("button");
       button.className = "btn btn-secondary btn-sm";
-      // const button = $("<button>");
       button.textContent = cities[i];
+      // const button = $("<button>");
       // button.attr("data-name", cities[i]);
       // button.addClass("city-name");
       console.log(cities[i])
+
       button.addEventListener("click", function () {
-        city = cities[i]
-        // Get city name
-        getWeather()
+        // Get city name from button that was clicked
+        const city = cities[i];
+        setLocationData(city);
+        // Call getWeather function for city of button that was clicked
+        getWeather(city)
       })
       this.recentLocations.appendChild(button)
     }

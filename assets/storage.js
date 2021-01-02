@@ -1,6 +1,5 @@
 // jQuery wrapper
 // $(document).ready(function () {
-
 class Storage {
   constructor() {
     this.city = '';
@@ -14,7 +13,6 @@ class Storage {
     } else {
       this.city = localStorage.getItem('city');
     }
-
     return {
       city: this.city,
     }
@@ -23,7 +21,6 @@ class Storage {
   setLocationData(city) {
     this.city = city;
     localStorage.setItem('city', this.city);
-
   }
 
   getCitiesArray() {

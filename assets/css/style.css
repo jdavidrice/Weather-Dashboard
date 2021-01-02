@@ -58,6 +58,11 @@
 .btn-primary {
   margin-bottom: 2rem;
 }
+#dayOne,
+#dayThree,
+#dayFive {
+  background-color: lightgray;
+}
 /* .container {
   display: grid;
 } */

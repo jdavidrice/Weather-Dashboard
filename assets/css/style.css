@@ -1,5 +1,7 @@
 .container {
   text-align: center;
+  font-size: 15px;
+  line-height: 16px;
 }
 .green {
   background: rgb(131, 197,1);
@@ -35,7 +37,7 @@
 }
 .grid-element {
   /* background-color: deepPink; */
-  padding: 2px;
+  padding: 10px 2px;
   color: #fff;
   border: 1px solid #fff;
   width: auto;

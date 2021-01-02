@@ -58,8 +58,8 @@ class UI {
     storage.getCitiesArray()
     // this.recentLocations.textContent = `${storage.history}`;
     this.createCityButtons(storage.history)
+
     uvi = weather.uv;
-    console.log("UV", uvi)
     setUvColor(uvi);
 
     let dayOneUTC = weather.dayOne.dt;
@@ -116,17 +116,20 @@ class UI {
   createCityButtons(cities) {
     $("#recentLocations").empty();
     for (var i = 0; i < cities.length; i++) {
-      const button = document.createElement("button");
-      button.className = "btn btn-secondary btn-sm";
-      // const button = $("<button>");
-      button.textContent = cities[i];
-      // button.attr("data-name", cities[i]);
-      // button.addClass("city-name");
-      console.log(cities[i])
+      const button = document.createElement("button")
+      button.className = "btn btn-secondary btn-sm"
+      button.textContent = cities[i]
+      const attribute = document.createAttribute("id")
+      attribute.value = `${button.textContent}`
+      button.setAttributeNode(attribute)
+
       button.addEventListener("click", function () {
-        city = cities[i]
-        // Get city name
-        getWeather()
+        const city = `${button.textContent}`;
+        // Change location
+        weather.changeLocation(city);
+        // Set location in LS
+        storage.setLocationData(city);
+        getWeather(city)
       })
       this.recentLocations.appendChild(button)
     }

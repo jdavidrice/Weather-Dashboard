@@ -21,19 +21,18 @@
 .grid-container {
   display: grid;
 }
-.grid-container--fill {
+/* .grid-container--fill {
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     align-items: center;
     text-align: center;
     padding: 0px;
     margin: 0px
-}
+} */
 .grid-container--fit {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     align-items: center;
     text-align: center;
-    padding: 0px;
-    margin: 0px;
+    padding: 12px 20px;
 }
 .grid-element {
   /* background-color: deepPink; */
@@ -42,6 +41,8 @@
   border: 1px solid #fff;
   width: auto;
   height: 80px;
+  margin: 1px;
+  /* min-width: 90px; */
 }
 .iconParent {
   height: 80px;
@@ -57,8 +58,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.btn-primary {
-  margin-bottom: 2rem;
+#changeLocBtn {
+  margin-bottom: 3rem;
 }
 #dayOne,
 #dayThree,

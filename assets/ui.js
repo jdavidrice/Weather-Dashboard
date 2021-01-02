@@ -117,6 +117,7 @@ class UI {
     $("#recentLocations").empty();
     for (var i = 0; i < cities.length; i++) {
       const button = document.createElement("button");
+      button.className = "btn btn-secondary btn-sm";
       // const button = $("<button>");
       button.textContent = cities[i];
       // button.attr("data-name", cities[i]);

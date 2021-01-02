@@ -1,7 +1,7 @@
 .container {
   text-align: center;
   font-size: 15px;
-  line-height: 16px;
+  line-height: 17px;
 }
 .green {
   background: rgb(131, 197,1);
@@ -17,6 +17,9 @@
 }
 .violet {
   background: rgb(112, 182, 254);
+}
+.forecastDates {
+  font-weight: bold;
 }
 .grid-container {
   display: grid;

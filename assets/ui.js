@@ -12,31 +12,36 @@ class UI {
     this.windSpeed = document.getElementById('windSpeed');
     this.uvIndex = document.getElementById('uvIndex');
     this.recentLocations = document.getElementById('recentLocations');
-    // this.dayOne = document.getElementById('dayOne');
-    // this.dayTwo = document.getElementById('dayTwo');
-    // this.dayThree = document.getElementById('dayThree');
-    // this.dayFour = document.getElementById('dayFour');
-    // this.dayFive = document.getElementById('dayFive');
-    this.dayOneIcon = document.getElementById('dayOneIcon');
-    this.dayTwoIcon = document.getElementById('dayTwoIcon');
-    this.dayThreeIcon = document.getElementById('dayThreeIcon');
-    this.dayFourIcon = document.getElementById('dayFourIcon');
-    this.dayFiveIcon = document.getElementById('dayFiveIcon');
 
     this.dayOneDesc = document.getElementById('dayOneDesc');
-    this.dayOneDate = document.getElementById('dayOneDesc');
+    this.dayOneDate = document.getElementById('dayOneDate');
+    this.dayOneIcon = document.getElementById('dayOneIcon');
+    this.dayOneTemp = document.getElementById('dayOneTemp');
+    this.dayOneHumidity = document.getElementById('dayOneHumidity');
 
     this.dayTwoDesc = document.getElementById('dayTwoDesc');
-    this.dayTwoDate = document.getElementById('dayTwoDesc');
+    this.dayTwoDate = document.getElementById('dayTwoDate');
+    this.dayTwoIcon = document.getElementById('dayTwoIcon');
+    this.dayTwoTemp = document.getElementById('dayTwoTemp');
+    this.dayTwoHumidity = document.getElementById('dayTwoHumidity');
 
     this.dayThreeDesc = document.getElementById('dayThreeDesc');
-    this.dayThreeDate = document.getElementById('dayThreeDesc');
+    this.dayThreeDate = document.getElementById('dayThreeDate');
+    this.dayThreeIcon = document.getElementById('dayThreeIcon');
+    this.dayThreeTemp = document.getElementById('dayThreeTemp');
+    this.dayThreeHumidity = document.getElementById('dayThreeHumidity');
 
     this.dayFourDesc = document.getElementById('dayFourDesc');
     this.dayFourDate = document.getElementById('dayFourDate');
+    this.dayFourIcon = document.getElementById('dayFourIcon');
+    this.dayFourTemp = document.getElementById('dayFourTemp');
+    this.dayFourHumidity = document.getElementById('dayFourHumidity');
 
     this.dayFiveDesc = document.getElementById('dayFiveDesc');
-    this.dayFiveDate = document.getElementById('dayFiveDesc');
+    this.dayFiveDate = document.getElementById('dayFiveDate');
+    this.dayFiveIcon = document.getElementById('dayFiveIcon');
+    this.dayFiveTemp = document.getElementById('dayFiveTemp');
+    this.dayFiveHumidity = document.getElementById('dayFiveHumidity');
 
   }
 
@@ -79,24 +84,33 @@ class UI {
 
     this.dayOneDesc.textContent = `${weather.dayOne.weather[0].description}`;
     this.dayOneDate.textContent = `${dayOneDate.toDateString()}`;
+    $('#dayOneIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayOne.weather[0].icon}@2x.png`}`);
+    this.dayOneTemp.textContent = `Daytime Temp: ${weather.dayOne.temp.day} Degrees F`;
+    this.dayOneHumidity.textContent = `Humidity: ${weather.dayOne.humidity}%`
 
     this.dayTwoDesc.textContent = `${weather.dayTwo.weather[0].description}`;
     this.dayTwoDate.textContent = `${dayTwoDate.toDateString()}`;
+    $('#dayTwoIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayTwo.weather[0].icon}@2x.png`}`);
+    this.dayTwoTemp.textContent = `Daytime Temp: ${weather.dayTwo.temp.day} Degrees F`;
+    this.dayTwoHumidity.textContent = `Humidity: ${weather.dayTwo.humidity}%`
 
     this.dayThreeDesc.textContent = `${weather.dayThree.weather[0].description}`;
     this.dayThreeDate.textContent = `${dayThreeDate.toDateString()}`;
+    $('#dayThreeIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayThree.weather[0].icon}@2x.png`}`);
+    this.dayThreeTemp.textContent = `Daytime Temp: ${weather.dayThree.temp.day} Degrees F`;
+    this.dayThreeHumidity.textContent = `Humidity: ${weather.dayThree.humidity}%`
 
     this.dayFourDesc.textContent = `${weather.dayFour.weather[0].description}`;
     this.dayFourDate.textContent = `${dayFourDate.toDateString()}`;
+    $('#dayFourIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayFour.weather[0].icon}@2x.png`}`);
+    this.dayFourTemp.textContent = `Daytime Temp: ${weather.dayFour.temp.day} Degrees F`;
+    this.dayFourHumidity.textContent = `Humidity: ${weather.dayFour.humidity}%`
 
     this.dayFiveDesc.textContent = `${weather.dayFive.weather[0].description}`;
     this.dayFiveDate.textContent = `${dayFiveDate.toDateString()}`;
-
-    $('#dayOneIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayOne.weather[0].icon}@2x.png`}`);
-    $('#dayTwoIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayTwo.weather[0].icon}@2x.png`}`);
-    $('#dayThreeIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayThree.weather[0].icon}@2x.png`}`);
-    $('#dayFourIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayFour.weather[0].icon}@2x.png`}`);
     $('#dayFiveIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayFive.weather[0].icon}@2x.png`}`);
+    this.dayFiveTemp.textContent = `Daytime Temp: ${weather.dayFive.temp.day} Degrees F`;
+    this.dayFiveHumidity.textContent = `Humidity: ${weather.dayFive.humidity}%`
   }
 
   createCityButtons(cities) {

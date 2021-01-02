@@ -41,11 +41,11 @@
   width: auto;
   height: 80px;
 }
-#dayFourIconParent {
+.iconParent {
   height: 80px;
   position: relative;
 }
-#dayFourIcon {
+.icon {
   height: 80px;
   width: 80px;
   align-items: center;

@@ -19,8 +19,8 @@ const weather = new Weather(weatherLocation.city);
 // Init UI
 const ui = new UI();
 
-// Current day Date
-let now = new Date();
+
+
 
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);

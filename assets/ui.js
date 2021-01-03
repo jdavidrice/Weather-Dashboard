@@ -46,9 +46,20 @@ class UI {
   }
 
   paint(weather) {
-    // console.log(weather)
+    // Current day 
+      let now = new Date();
+      let dayofweek = new Array(7);
+      dayofweek[0] = "Sunday";
+      dayofweek[1] = "Monday";
+      dayofweek[2] = "Tuesday";
+      dayofweek[3] = "Wednesday";
+      dayofweek[4] = "Thursday";
+      dayofweek[5] = "Friday";
+      dayofweek[6] = "Saturday";
+      var day = dayofweek[now.getDay()];
     this.city.textContent = `${weather.name}`;
-    this.date.textContent = `${now.toDateString()} ${now.toLocaleTimeString()}`;
+    this.date.textContent = `${day} ${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
+    // this.date.textContent = `${now.getDay()} `;
     this.desc.textContent = `${weather.weather[0].description}`;
     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`);
     this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
@@ -128,9 +139,9 @@ class UI {
         storage.setLocationData(city);
         getWeather(city)
       })
-    
-        this.recentLocations.appendChild(button)
-      
+
+      this.recentLocations.appendChild(button)
+
     }
   }
 }

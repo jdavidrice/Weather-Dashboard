@@ -24,13 +24,6 @@
 .grid-container {
   display: grid;
 }
-/* .grid-container--fill {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    align-items: center;
-    text-align: center;
-    padding: 0px;
-    margin: 0px
-} */
 .grid-container--fit {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     align-items: center;
@@ -38,14 +31,12 @@
     padding: 12px 20px;
 }
 .grid-element {
-  /* background-color: deepPink; */
   padding: 10px 2px;
   color: #fff;
   /* border: 1px solid #fff; */
   width: auto;
   height: 80px;
   margin: 1px;
-  /* min-width: 90px; */
 }
 .current {
   font-size: 19px;

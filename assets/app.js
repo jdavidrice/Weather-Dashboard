@@ -17,7 +17,7 @@ const ui = new UI();
 // Get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
 
-// Change location event
+// Change location event (on button click)
 document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const city = document.getElementById('city').value;
 
@@ -35,6 +35,29 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   // Close modal
   $('#locModal').modal('hide');
 });
+
+// Change location event (on enter key)
+document.getElementById('city').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const city = document.getElementById('city').value;
+
+    // Change location
+    weather.changeLocation(city);
+
+    // Set location in LS
+    storage.setLocationData(city);
+
+    storage.setCitiesArray();
+
+    // Get and display weather
+    getWeather();
+
+    // Close modal
+    $('#locModal').modal('hide');
+  }
+});
+
+
 
 function getWeather() {
   weather.getWeather()

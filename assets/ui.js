@@ -46,8 +46,7 @@ class UI {
 
   }
 
-  paint(weather) {
-    // Current day 
+  paint(weather) { 
     let now = new Date();
     let dayofweek = new Array(7);
     dayofweek[0] = "Sunday";
@@ -59,16 +58,15 @@ class UI {
     dayofweek[6] = "Saturday";
     let day = dayofweek[now.getDay()];
 
-    this.city.textContent = `${weather.name}`;
+    this.city.textContent = `${weather.name}`
     this.date.textContent = `${day}`
-    this.date2.textContent = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
-    // this.date.textContent = `${now.getDay()} `;
+    this.date2.textContent = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`
     this.desc.textContent = `${weather.weather[0].description}`;
-    $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`);
-    this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`;
-    this.humidity.textContent = `Humidity: ${weather.main.humidity}%`;
-    this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
-    this.uvIndex.textContent = `UV Index: ${weather.uv}`;
+    $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`)
+    this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`
+    this.humidity.textContent = `Humidity: ${weather.main.humidity}%`
+    this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`
+    this.uvIndex.textContent = `UV Index: ${weather.uv}`
 
     storage.getCitiesArray()
 
@@ -106,31 +104,31 @@ class UI {
     this.dayOneDate.textContent = `${dayOne}`;
     $('#dayOneIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayOne.weather[0].icon}@2x.png`}`);
     this.dayOneTemp.textContent = `Daytime Temp: ${weather.dayOne.temp.day} Degrees F`;
-    this.dayOneHumidity.textContent = `Humidity: ${weather.dayOne.humidity}%`
+    this.dayOneHumidity.textContent = `Humidity: ${weather.dayOne.humidity}%`;
 
     this.dayTwoDesc.textContent = `${weather.dayTwo.weather[0].description}`;
     this.dayTwoDate.textContent = `${dayTwo}`;
     $('#dayTwoIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayTwo.weather[0].icon}@2x.png`}`);
     this.dayTwoTemp.textContent = `Daytime Temp: ${weather.dayTwo.temp.day} Degrees F`;
-    this.dayTwoHumidity.textContent = `Humidity: ${weather.dayTwo.humidity}%`
+    this.dayTwoHumidity.textContent = `Humidity: ${weather.dayTwo.humidity}%`;
 
     this.dayThreeDesc.textContent = `${weather.dayThree.weather[0].description}`;
     this.dayThreeDate.textContent = `${dayThree}`;
     $('#dayThreeIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayThree.weather[0].icon}@2x.png`}`);
     this.dayThreeTemp.textContent = `Daytime Temp: ${weather.dayThree.temp.day} Degrees F`;
-    this.dayThreeHumidity.textContent = `Humidity: ${weather.dayThree.humidity}%`
+    this.dayThreeHumidity.textContent = `Humidity: ${weather.dayThree.humidity}%`;
 
     this.dayFourDesc.textContent = `${weather.dayFour.weather[0].description}`;
     this.dayFourDate.textContent = `${dayFour}`;
     $('#dayFourIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayFour.weather[0].icon}@2x.png`}`);
     this.dayFourTemp.textContent = `Daytime Temp: ${weather.dayFour.temp.day} Degrees F`;
-    this.dayFourHumidity.textContent = `Humidity: ${weather.dayFour.humidity}%`
+    this.dayFourHumidity.textContent = `Humidity: ${weather.dayFour.humidity}%`;
 
     this.dayFiveDesc.textContent = `${weather.dayFive.weather[0].description}`;
     this.dayFiveDate.textContent = `${dayFive}`;
     $('#dayFiveIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayFive.weather[0].icon}@2x.png`}`);
     this.dayFiveTemp.textContent = `Daytime Temp: ${weather.dayFive.temp.day} Degrees F`;
-    this.dayFiveHumidity.textContent = `Humidity: ${weather.dayFive.humidity}%`
+    this.dayFiveHumidity.textContent = `Humidity: ${weather.dayFive.humidity}%`;
   }
   createCityButtons(cities) {
     $("#recentLocations").empty();

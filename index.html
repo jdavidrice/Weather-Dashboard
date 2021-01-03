@@ -6,10 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <!-- Primitive CSS 
-  <link rel="stylesheet" href="assets/css/main.css"> -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -17,25 +14,77 @@
 <body>
   <div class="container">
     <h1>Weather Dashboard</h1>
+    <h1 id="nameOfCity"></h1>
     <div class="row">
-      <div class="col-md-6 mx-auto text-center bg-primary mt-5 p-5 rounded">
-        <h1 id="city"></h1>
+      <div class="current col-md-6 mx-auto text-center bg-primary mt-5 p-5">
         <h3 class="text-dark" id="date"></h3>
+        <h3 class="text-dark" id="date2"></h3>
         <ul id="w-details" class="list-group mt-3">
-          <li class="list-group-item">
-            <img id="icon" alt="icon" />
+          <li class="list-group-item text-dark">
+            <img id="icon" />
+            <p class="text-dark" id="desc"></p>
           </li>
           <li class="list-group-item" id="temp"></li>
           <li class="list-group-item" id="humidity"></li>
           <li class="list-group-item" id="windSpeed"></li>
           <li class="list-group-item" id="uvIndex"></li>
         </ul>
-        <hr>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
-          Change Location
-        </button>
+      </div>
+      <div class="forecast col-md-6 mx-auto text-center bg-primary mt-5 p-5">
+        <h3 class="text-dark">Five Day Forecast</h3>
+        <ul id="w-details" class="list-group mt-3">
+          <li class="list-group-item grid-container grid-container--fit" id="dayOne">
+            <div class="grid-element text-dark">
+              <div class="forecastDates" id="dayOneDate"></div>
+              <div id="dayOneDesc"></div>
+            </div>
+            <div class="grid-element iconParent" id="dayOneIconParent"><img class="icon" id="dayOneIcon" /></div>
+            <div class="grid-element text-dark" id="dayOneTemp"></div>
+            <div class="grid-element text-dark" id="dayOneHumidity"></div>
+          </li>
+          <li class="list-group-item grid-container grid-container--fit" id="dayTwo">
+            <div class="grid-element text-dark">
+              <div class="forecastDates" id="dayTwoDate"></div>
+              <div id="dayTwoDesc"></div>
+            </div>
+            <div class="grid-element iconParent" id="dayTwoIconParent"><img class="icon" id="dayTwoIcon" /></div>
+            <div class="grid-element text-dark" id="dayTwoTemp"></div>
+            <div class="grid-element text-dark" id="dayTwoHumidity"></div>
+          </li>
+          <li class="list-group-item grid-container grid-container--fit" id="dayThree">
+            <div class="grid-element text-dark">
+              <div class="forecastDates" id="dayThreeDate"></div>
+              <div id="dayThreeDesc"></div>
+            </div>
+            <div class="grid-element iconParent" id="dayThreeIconParent"><img class="icon" id="dayThreeIcon" /></div>
+            <div class="grid-element text-dark" id="dayThreeTemp"></div>
+            <div class="grid-element text-dark" id="dayThreeHumidity"></div>
+          </li>
+          <li class="list-group-item grid-container grid-container--fit" id="dayFour">
+            <div class="grid-element text-dark">
+              <div class="forecastDates" id="dayFourDate"></div>
+              <div id="dayFourDesc"></div>
+            </div>
+            <div class="grid-element iconParent" id="dayFourIconParent"><img class="icon" id="dayFourIcon" /></div>
+            <div class="grid-element text-dark" id="dayFourTemp"></div>
+            <div class="grid-element text-dark" id="dayFourHumidity"></div>
+          </li>
+          <li class="list-group-item grid-container grid-container--fit" id="dayFive">
+            <div class="grid-element text-dark">
+              <div class="forecastDates" id="dayFiveDate"></div>
+              <div id="dayFiveDesc"></div>
+            </div>
+            <div class="grid-element iconParent" id="dayFiveIconParent"><img class="icon" id="dayFiveIcon" /></div>
+            <div class="grid-element text-dark" id="dayFiveTemp"></div>
+            <div class="grid-element text-dark" id="dayFiveHumidity"></div>
+          </li>
+        </ul>
       </div>
     </div>
+    <hr>
+    <button type="button" id="changeLocBtn" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
+      Change Location
+    </button>
   </div>
 
   <!-- Modal -->
@@ -51,18 +100,18 @@
         <div class="modal-body">
           <form id="w-form">
             <div class="form-group">
-              <label for="modal-city">City</label>
-              <input type="text" id="modal-city" class="form-control">
+              <label for="city">City</label>
+              <input type="text" autocapitalize="word" id="city" class="form-control">
             </div>
             <div class="form-group">
-              <label for="recent-locations">Recent Locations</label>
-              <input type="text" id="recent-locations" class="form-control">
+              <label for="recentLocations">Recent Locations</label>
+              <div id="recentLocations"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" id="w-change-btn" class="btn btn-primary">Save changes</button>
             </div>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" id="saveChangesBtn" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -73,11 +122,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
-  <!-- Moment.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <!-- Custom JS -->
-  <script src="assets/app.js"></script>
   <script src="assets/storage.js"></script>
+  <script src="assets/weather.js"></script>
+  <script src="assets/ui.js"></script>
+  <script src="assets/app.js"></script>
+
+  </script>
 </body>
 
 </html>

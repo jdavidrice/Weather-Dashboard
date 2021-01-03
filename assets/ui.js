@@ -119,9 +119,6 @@ class UI {
       const button = document.createElement("button")
       button.className = "btn btn-secondary btn-sm"
       button.textContent = cities[i]
-      const attribute = document.createAttribute("id")
-      attribute.value = `${button.textContent}`
-      button.setAttributeNode(attribute)
 
       button.addEventListener("click", function () {
         const city = `${button.textContent}`;
@@ -131,7 +128,9 @@ class UI {
         storage.setLocationData(city);
         getWeather(city)
       })
-      this.recentLocations.appendChild(button)
+    
+        this.recentLocations.appendChild(button)
+      
     }
   }
 }

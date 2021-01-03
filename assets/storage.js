@@ -30,11 +30,11 @@ class Storage {
 
   setCitiesArray() {
     this.getCitiesArray();
-    this.history.push(this.city);
-    localStorage.setItem('cities', JSON.stringify(this.history))
-    ;
+    if ($.inArray(this.city, this.history) == -1) {
+      this.history.push(this.city);
+    }
+    localStorage.setItem('cities', JSON.stringify(this.history));
   }
-
 }
 
 // const input = document.getElementById('nameOfCity').value;

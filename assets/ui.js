@@ -5,6 +5,7 @@ class UI {
   constructor() {
     this.city = document.getElementById('nameOfCity');
     this.date = document.getElementById('date');
+    this.date2 = document.getElementById('date2');
     this.icon = document.getElementById('icon');
     this.desc = document.getElementById('desc');
     this.temp = document.getElementById('temp');
@@ -47,18 +48,20 @@ class UI {
 
   paint(weather) {
     // Current day 
-      let now = new Date();
-      let dayofweek = new Array(7);
-      dayofweek[0] = "Sunday";
-      dayofweek[1] = "Monday";
-      dayofweek[2] = "Tuesday";
-      dayofweek[3] = "Wednesday";
-      dayofweek[4] = "Thursday";
-      dayofweek[5] = "Friday";
-      dayofweek[6] = "Saturday";
-      var day = dayofweek[now.getDay()];
+    let now = new Date();
+    let dayofweek = new Array(7);
+    dayofweek[0] = "Sunday";
+    dayofweek[1] = "Monday";
+    dayofweek[2] = "Tuesday";
+    dayofweek[3] = "Wednesday";
+    dayofweek[4] = "Thursday";
+    dayofweek[5] = "Friday";
+    dayofweek[6] = "Saturday";
+    let day = dayofweek[now.getDay()];
+
     this.city.textContent = `${weather.name}`;
-    this.date.textContent = `${day} ${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}`;
+    this.date.textContent = `${day}`
+    this.date2.textContent = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
     // this.date.textContent = `${now.getDay()} `;
     this.desc.textContent = `${weather.weather[0].description}`;
     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`);
@@ -77,49 +80,54 @@ class UI {
     let dayOneUTC = weather.dayOne.dt;
     let dayOneJsTime = dayOneUTC * 1000;
     let dayOneDate = new Date(dayOneJsTime);
+    let dayOne = dayofweek[dayOneDate.getDay()];
 
     let dayTwoUTC = weather.dayTwo.dt;
     let dayTwoJsTime = dayTwoUTC * 1000;
     let dayTwoDate = new Date(dayTwoJsTime);
+    let dayTwo = dayofweek[dayTwoDate.getDay()];
 
     let dayThreeUTC = weather.dayThree.dt;
     let dayThreeJsTime = dayThreeUTC * 1000;
     let dayThreeDate = new Date(dayThreeJsTime);
+    let dayThree = dayofweek[dayThreeDate.getDay()];
 
     let dayFourUTC = weather.dayFour.dt;
     let dayFourJsTime = dayFourUTC * 1000;
     let dayFourDate = new Date(dayFourJsTime);
+    let dayFour = dayofweek[dayFourDate.getDay()];
 
     let dayFiveUTC = weather.dayFive.dt;
     let dayFiveJsTime = dayFiveUTC * 1000;
     let dayFiveDate = new Date(dayFiveJsTime);
+    let dayFive = dayofweek[dayFiveDate.getDay()];
 
     this.dayOneDesc.textContent = `${weather.dayOne.weather[0].description}`;
-    this.dayOneDate.textContent = `${dayOneDate.toDateString()}`;
+    this.dayOneDate.textContent = `${dayOne}`;
     $('#dayOneIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayOne.weather[0].icon}@2x.png`}`);
     this.dayOneTemp.textContent = `Daytime Temp: ${weather.dayOne.temp.day} Degrees F`;
     this.dayOneHumidity.textContent = `Humidity: ${weather.dayOne.humidity}%`
 
     this.dayTwoDesc.textContent = `${weather.dayTwo.weather[0].description}`;
-    this.dayTwoDate.textContent = `${dayTwoDate.toDateString()}`;
+    this.dayTwoDate.textContent = `${dayTwo}`;
     $('#dayTwoIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayTwo.weather[0].icon}@2x.png`}`);
     this.dayTwoTemp.textContent = `Daytime Temp: ${weather.dayTwo.temp.day} Degrees F`;
     this.dayTwoHumidity.textContent = `Humidity: ${weather.dayTwo.humidity}%`
 
     this.dayThreeDesc.textContent = `${weather.dayThree.weather[0].description}`;
-    this.dayThreeDate.textContent = `${dayThreeDate.toDateString()}`;
+    this.dayThreeDate.textContent = `${dayThree}`;
     $('#dayThreeIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayThree.weather[0].icon}@2x.png`}`);
     this.dayThreeTemp.textContent = `Daytime Temp: ${weather.dayThree.temp.day} Degrees F`;
     this.dayThreeHumidity.textContent = `Humidity: ${weather.dayThree.humidity}%`
 
     this.dayFourDesc.textContent = `${weather.dayFour.weather[0].description}`;
-    this.dayFourDate.textContent = `${dayFourDate.toDateString()}`;
+    this.dayFourDate.textContent = `${dayFour}`;
     $('#dayFourIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayFour.weather[0].icon}@2x.png`}`);
     this.dayFourTemp.textContent = `Daytime Temp: ${weather.dayFour.temp.day} Degrees F`;
     this.dayFourHumidity.textContent = `Humidity: ${weather.dayFour.humidity}%`
 
     this.dayFiveDesc.textContent = `${weather.dayFive.weather[0].description}`;
-    this.dayFiveDate.textContent = `${dayFiveDate.toDateString()}`;
+    this.dayFiveDate.textContent = `${dayFive}`;
     $('#dayFiveIcon').attr("src", `${`http://openweathermap.org/img/wn/${weather.dayFive.weather[0].icon}@2x.png`}`);
     this.dayFiveTemp.textContent = `Daytime Temp: ${weather.dayFive.temp.day} Degrees F`;
     this.dayFiveHumidity.textContent = `Humidity: ${weather.dayFive.humidity}%`

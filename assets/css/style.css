@@ -41,11 +41,14 @@
   /* background-color: deepPink; */
   padding: 10px 2px;
   color: #fff;
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   width: auto;
   height: 80px;
   margin: 1px;
   /* min-width: 90px; */
+}
+.current {
+  font-size: 18px;
 }
 .iconParent {
   height: 80px;
@@ -72,16 +75,3 @@
 #dayFive {
   background-color: lightgray;
 }
-/* .container {
-  display: grid;
-} */
-
-/* .item {
-  display: flex;
-  padding: auto;
-  margin: auto;
-} */
-
-/* .list-group-item {
-  align-items: center;
-} */

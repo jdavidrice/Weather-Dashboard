@@ -48,7 +48,8 @@
   /* min-width: 90px; */
 }
 .current {
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: bold;
 }
 .iconParent {
   height: 80px;

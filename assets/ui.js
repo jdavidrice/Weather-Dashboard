@@ -49,6 +49,7 @@ class UI {
   paint(weather) { 
     let now = new Date();
     let dayofweek = new Array(7);
+    let day = dayofweek[now.getDay()];
     dayofweek[0] = "Sunday";
     dayofweek[1] = "Monday";
     dayofweek[2] = "Tuesday";
@@ -56,8 +57,7 @@ class UI {
     dayofweek[4] = "Thursday";
     dayofweek[5] = "Friday";
     dayofweek[6] = "Saturday";
-    let day = dayofweek[now.getDay()];
-
+    
     this.city.textContent = `${weather.name}`
     this.date.textContent = `${day}`
     this.date2.textContent = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`

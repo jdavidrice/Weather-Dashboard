@@ -27,7 +27,6 @@
 }
 .grid-container {
   display: grid;
-
 }
 .grid-container--fit {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -46,7 +45,7 @@
 }
 .current {
   font-size: 19px;
-  font-weight: bold;
+  /* font-weight: bold; */
   line-height: 21px;
 }
 .iconParent {

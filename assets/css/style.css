@@ -41,6 +41,7 @@
 .current {
   font-size: 19px;
   font-weight: bold;
+  line-height: 21px;
 }
 .iconParent {
   height: 80px;

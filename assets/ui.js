@@ -8,7 +8,8 @@ class UI {
     this.date2 = document.getElementById('date2');
     this.icon = document.getElementById('icon');
     this.desc = document.getElementById('desc');
-    this.temp = document.getElementById('temp');
+    this.hiTemp = document.getElementById('hiTemp');
+    this.lowTemp = document.getElementById('lowTemp');
     this.humidity = document.getElementById('humidity');
     this.windSpeed = document.getElementById('windSpeed');
     this.uvIndex = document.getElementById('uvIndex');
@@ -49,7 +50,6 @@ class UI {
   paint(weather) { 
     let now = new Date();
     let dayofweek = new Array(7);
-    let day = dayofweek[now.getDay()];
     dayofweek[0] = "Sunday";
     dayofweek[1] = "Monday";
     dayofweek[2] = "Tuesday";
@@ -57,15 +57,17 @@ class UI {
     dayofweek[4] = "Thursday";
     dayofweek[5] = "Friday";
     dayofweek[6] = "Saturday";
-    
+    let day = dayofweek[now.getDay()];
+
     this.city.textContent = `${weather.name}`
     this.date.textContent = `${day}`
     this.date2.textContent = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`
     this.desc.textContent = `${weather.weather[0].description}`;
     $('#icon').attr("src", `${`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}`)
-    this.temp.textContent = `Temperature: ${weather.main.temp} Degrees F`
+    this.hiTemp.textContent = `High: ${weather.main.temp_max.toFixed(0)}\xB0F`
+    this.lowTemp.textContent = `Low: ${weather.main.temp_min.toFixed(0)}\xB0F`
     this.humidity.textContent = `Humidity: ${weather.main.humidity}%`
-    this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed} MPH`
+    this.windSpeed.textContent = `Wind Speed: ${weather.wind.speed.toFixed(0)} MPH`
     this.uvIndex.textContent = `UV Index: ${weather.uv}`
 
     storage.getCitiesArray()

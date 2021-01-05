@@ -76,6 +76,9 @@
 #changeLocBtn {
   margin-bottom: 3rem;
 }
+#recentLocations button {
+  text-transform: capitalize;
+}
 .forecastDesc {
   margin-top: 32px;
   margin-bottom: 10px;;

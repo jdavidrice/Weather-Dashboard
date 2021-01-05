@@ -52,7 +52,7 @@ class UI {
 
   }
 
-  paint(weather) { 
+  paint(weather) {
     let now = new Date();
     let dayofweek = new Array(7);
     dayofweek[0] = "Sunday";
@@ -228,9 +228,8 @@ function setUvColor(uvi) {
       .classList.remove(veryHigh.color);
     document
       .getElementById('uvIndex')
-      .classList.add(extreme.color)
   }
 }
 
 // Below this line are the closing delimiters for the ready function at the top of the page
-// })
+// });

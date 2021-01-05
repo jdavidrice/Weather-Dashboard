@@ -26,7 +26,7 @@ class Weather {
     responseData.dayThree = UVresponseData.daily[3]
     responseData.dayFour = UVresponseData.daily[4]
     responseData.dayFive = UVresponseData.daily[5]
-  
+
     return responseData;
   }
   // Change weather location

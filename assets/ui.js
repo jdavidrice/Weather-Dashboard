@@ -1,6 +1,3 @@
-// jQuery wrapper
-// $(document).ready(function () {
-
 class UI {
   constructor() {
     this.city = document.getElementById('nameOfCity');
@@ -230,6 +227,3 @@ function setUvColor(uvi) {
       .getElementById('uvIndex')
   }
 }
-
-// Below this line are the closing delimiters for the ready function at the top of the page
-// });

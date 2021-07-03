@@ -1,6 +1,3 @@
-// jQuery wrapper
-// $(document).ready(function () {
-
 class Storage {
   constructor() {
     this.city = '';
@@ -33,6 +30,3 @@ class Storage {
     localStorage.setItem('cities', JSON.stringify(this.history));
   }
 }
-
-// Below this line are the closing delimiters for the ready function at the top of the page
-// })

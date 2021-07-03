@@ -15,8 +15,12 @@
   <div class="container">
     <h1>Weather Dashboard</h1>
     <h1 id="nameOfCity"></h1>
+    <br>
+    <button type="button" id="changeLocBtn" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
+      Change Location
+    </button>
     <div class="row">
-      <div class="current col-md-6 mx-auto text-center bg-primary mt-5 p-5">
+      <div class="current col-md-6 mx-auto text-center bg-primary mt-4 p-5">
         <h3 class="text-dark" id="date"></h3>
         <h3 class="text-dark" id="date2"></h3>
         <ul id="w-details" class="list-group mt-3">
@@ -33,7 +37,7 @@
           <li class="list-group-item" id="uvIndex"></li>
         </ul>
       </div>
-      <div class="forecast col-md-6 mx-auto text-center bg-primary mt-5 p-5">
+      <div class="forecast col-md-6 mx-auto text-center bg-primary mt-4 p-5">
         <h3 class="text-dark">Five Day Forecast</h3>
         <ul id="w-details" class="list-group mt-3">
           <li class="list-group-item grid-container grid-container--fit" id="dayOne">
@@ -129,10 +133,6 @@
         </ul>
       </div>
     </div>
-    <hr>
-    <button type="button" id="changeLocBtn" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
-      Change Location
-    </button>
   </div>
 
   <!-- Modal -->
@@ -156,9 +156,9 @@
               <div id="recentLocations"></div>
             </div>
             <div class="modal-footer">
-              <button type="submit" id="w-change-btn" class="btn btn-primary">Save Changes</button>
+              <button type="button" id="w-change-btn" class="btn btn-primary"
+            >Save Changes</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              
             </div>
           </form>
         </div>

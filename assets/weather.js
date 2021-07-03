@@ -1,6 +1,3 @@
-// jQuery wrapper
-// $(document).ready(function () {
-
 class Weather {
   constructor(city) {
     this.apiKey = '857d8b3aed4b93541a08ad2a027ffb0c';
@@ -33,9 +30,4 @@ class Weather {
   changeLocation(city) {
     this.city = city;
   }
-
-  // The curly bracket below closes the Weather class from the top of the page
 }
-
-// Below this line are the closing delimiters for the ready function at the top of the page
-// })

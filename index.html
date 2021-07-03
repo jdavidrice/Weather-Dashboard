@@ -36,6 +36,12 @@
           <li class="list-group-item" id="windSpeed"></li>
           <li class="list-group-item" id="uvIndex"></li>
         </ul>
+        <br />
+        <h4 class="text-dark">This app uses the <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer">OpenWeather API</a></h4>
+        <br />
+        <p className="footer__text">
+          © 2021 - Jeremy Rice
+        </p>
       </div>
       <div class="forecast col-md-6 mx-auto text-center bg-primary mt-4 p-5">
         <h3 class="text-dark">Five Day Forecast</h3>
@@ -155,9 +161,8 @@
               <label for="recentLocations">Recent Locations</label>
               <div id="recentLocations"></div>
             </div>
-            <div class="modal-footer">
-              <button type="button" id="w-change-btn" class="btn btn-primary"
-            >Save Changes</button>
+            <div class="form-group modal-footer">
+              <button type="submit" id="w-change-btn" class="btn btn-primary">Save Changes</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </form>
